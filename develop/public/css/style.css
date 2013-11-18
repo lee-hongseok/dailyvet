@@ -1,0 +1,555 @@
+/*  
+Theme Name: WP-Bold
+Theme URL: http://www.solostream.com
+Description: WP-Bold is a responsive and user-friendly theme for WordPress.
+Author: Solostream
+Author URI: http://www.solostream.com/
+Version: 1.0.9
+
+The CSS, XHTML and design is released under GPL:
+http://www.opensource.org/licenses/gpl-license.php
+
+*/
+
+/* --- [ YOU SHOULD NOT CHANGE THIS FILE. Make style changes on the Theme Settings page or on custom.css ] --- */
+
+/* -------------------[ Main Page Elements ]------------------- */
+
+body {
+	text-align: left;
+	margin: 0;
+	padding: 0;
+	color:336699;
+/*	line-height:37px; */
+	background:#fff url(images/bg-2.png);
+	font-size:9pt;
+	font-family:arial,helvetica,sans-serif;
+	border-top:1px solid #336699;
+        }
+
+
+.kakao {
+    float:left;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFB1F), to(#EBE70C));
+    border-radius: 5px;
+    width:130px;
+    height:25px;
+    box-shadow: rgba(0, 0, 0, 0.496094) 0px 1px 1px 0px, rgba(0, 0, 0, 0.0976563) 0px -1px 0px 0px;
+    border:0px;
+    font-size:12px;
+    text-align: center;
+    line-height: 30px;
+    margin:0px auto;
+}
+
+
+#outer-wrap {
+	width:100%;
+	margin:0 auto;
+	padding:0;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #fff;
+	}
+
+#header {
+	clear: both;
+	margin: 0 auto;
+	padding: 0;
+	max-width:100%;
+	}
+
+#head-content {
+	margin: 10px 0 3px 0;
+	padding: 20px 0 0 0;
+	max-width:100%;
+	}
+
+#sitetitle, 
+#logo {
+  min-width:170px;
+	max-width:100%;
+	margin:0;
+	padding:0;
+	text-align:left;
+	}
+
+#logo img {
+	max-width:100%;
+	height:auto;
+	}
+
+#sitetitle .title {
+	padding:0;
+	margin:0;
+	letter-spacing:-1px;
+	line-height:1.2em;
+	font-size:24px;
+	display:block;
+	}
+
+#sitetitle .title a {
+	color:#000;
+	}
+
+#sitetitle .description {
+	padding: 0;
+	margin:0;
+	font-size:9pt;
+	display:block;
+	}
+
+#wrap {
+	clear: both;
+	margin: 0 auto;
+	padding:0;
+	}
+
+.limit {
+	margin: 0 auto;
+	}
+
+#page {
+	padding:5px 0;
+	clear: both;
+	margin: 0 auto;
+	}
+
+
+#wrap,
+.limit {
+	width:960px;
+	margin: 0 auto;
+	}
+
+#contentleft {
+	width: 65.625%;
+	float:left;
+	padding:0;
+	margin: 0;
+	position:relative;
+	}
+
+#content {
+	width: 74.60317%;
+	float:none;
+	padding:0;
+	margin: 0;
+	}
+
+#sidebar-narrow {
+	width: 20.63492%;
+	float:left;
+	padding:0;
+	margin: 0;
+	}
+
+#contentright {
+	width: 31.25%;	
+	float:right;	
+	padding:0;	
+	margin: 0;
+	}
+
+#sidebar {
+	width: 100%;	
+	float:none;	
+	display:block;
+	overflow:hidden;
+	}
+
+#sidebar-bottom {
+	clear:both;
+	display: block;
+	overflow:hidden;
+	padding:0;
+	}
+
+#sidebar-bottom-left {
+	width:54%;
+	float:left;
+	padding:0;
+	margin:0;
+	overflow:hidden;
+	}
+
+#sidebar-bottom-right {
+	width:40%;
+	float:right;
+	padding:0;
+	margin:0;
+	overflow:hidden;
+	}
+
+#footer {
+	background:#151515 url(images/bodybg2.png);
+	clear: both;
+	margin: 0 auto;
+	padding: 20px 0 40px;
+	font-size:8pt;
+	text-align:left;
+	color:#999;
+	font-weight:bold;
+	}
+
+#footer p {
+	margin:0;
+	}
+
+.clearfix:after,
+blockquote:after {
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+	}
+
+.clearfix,
+blockquote {
+	display: inline-block;
+	}
+
+/* Hides from IE-mac \*/
+* html .clearfix,
+* html blockquote {
+	height: 1%;
+	}
+.clearfix,
+blockquote {
+	display: block;
+	}
+/* End hide from IE-mac */
+
+/* -------------------[ Headings ]------------------- */
+
+h1,h2,h3,h4,h5,h6,h7,#sitetitle .title  {
+	font-family: "Open Sans", arial,helvetica,sans-serif;
+	letter-spacing:-1px;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	font-weight:bold;
+	color:#394973;
+	line-height: 1.2em;
+	}
+
+h1 {
+	font-size: 20pt;
+	margin: 0;
+	}
+
+h2 {
+	font-size: 18pt;
+	}
+
+h3 {
+	font-size: 16pt;
+	}
+
+h4,h5,h6,h7 {
+	font-size: 14pt;
+
+	}
+
+.entry h1,.entry h2,.entry h3, .entry h4, .entry h5, .entry h6, .entry h7 {
+	margin-bottom: 15px;
+	}
+
+h3#postinfo, h3#comments, h3#respond, h3#trackbacks, #respond h3  {
+	margin: 0;
+	}
+
+h3.post-title, h2.post-title {
+	font-size: 16pt;
+	margin:0 0 15px;
+        font-weight:bold;
+	}
+
+h1.post-title {
+	margin:0 0 15px;
+	}
+
+h1.page-title {
+	padding:0 0 10px;
+	margin:0 0 15px;
+	border-bottom:1px dotted #ddd;
+	}
+
+.auth-bio h1 {
+	margin:0 0 15px;
+	font-size:16pt;
+	}
+
+h2.feature-title,
+h3.widgettitle,
+h2.feat-title,
+.sitemap h2,
+h1.archive-title {
+	padding:0;
+	letter-spacing:0;
+	font-size: 12pt;
+	font-weight:bold;
+	text-transform: uppercase;
+	margin: 0 0 12px 0;
+	}
+
+#footer-widgets h3.widgettitle {
+	color:#ccc;
+	margin: 0 0 15px;
+	border-bottom:1px dotted #444;
+	padding:0 0 5px;
+	}
+
+#comments h3  {
+	font-size:14pt;
+	}
+
+/* -------------------[ Links ]------------------- */
+
+a, a:link, a:visited {
+	outline:none;
+	text-decoration:none;
+	color:#336699;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	}
+
+a:hover, a:active {
+	text-decoration:none;
+	color:#336699;
+	}
+
+a.more-link, 
+a.more-link:link, 
+a.more-link:visited  {}
+
+a.more-link:hover, 
+a.more-link:active  {}
+
+#footer a, 
+#footer a:link, 
+#footer a:visited {
+	color:#ddd;
+	}
+
+#footer a:hover, 
+#footer a:active {
+	color:#ffcc00;
+	}
+
+#footer-widgets a, 
+#footer-widgets, 
+#footer-widgets {
+	color:#fff;
+	}
+
+#footer-widgets a:hover, 
+#footer-widgets a:active {
+	color:#ffcc00;
+	}
+
+.post-title a, .post-title a:link, .post-title a:visited {
+	color:#000;
+	text-decoration:none;
+	}
+
+.post-title a:hover, .post-title a:active {
+	color:#336699;
+	}
+
+h3.widgettitle a,
+h3.widgettitle a:link,
+h3.widgettitle a:visited,
+h2.feature-title a,
+h2.feature-title a:link,
+h2.feature-title a:visited {
+	color:#000;
+	}
+
+h3.widgettitle a:hover,
+h3.widgettitle a:active,
+h2.feature-title a:hover,
+h2.feature-title a:active {
+	color:#336699;
+	}
+
+#alt-home-bottom h3.widgettitle a,
+#alt-home-bottom h3.widgettitle a:link,
+#alt-home-bottom h3.widgettitle a:visited {}
+
+#alt-home-bottom h3.widgettitle a:hover,
+#alt-home-bottom h3.widgettitle a:active {}
+
+#footer-widgets h3.widgettitle a,
+#footer-widgets h3.widgettitle a:link,
+#footer-widgets h3.widgettitle a:visited {
+	color:#ccc;
+	}
+
+#footer-widgets h3.widgettitle a:hover,
+#footer-widgets h3.widgettitle a:active {
+	color:#ffcc00;
+	}
+	
+/* -------------------[ Images ]------------------- */
+
+.entry img {
+	max-width: 100%;
+	padding:0;
+	height:auto;
+        }
+
+img.alignright {
+	float: right;
+	clear: right;
+	margin: 0 0 15px 10px;
+        }
+
+img.alignleft {
+	float: left;
+	clear: left;
+	margin: 0 10px 15px 0px;
+        }
+
+img.aligncenter, img.centered, img.center { 
+	display: block; 
+	margin: 0 auto 15px;  
+	float: none; 
+	clear: both;
+        }
+
+img.thumbnail {
+	float:right;
+	margin: 0 0 15px 10px;
+	}
+
+.entry img.thumbnail {
+	max-width:25%;
+	height:auto;
+	}
+
+img.wide-thumbnail {
+	max-width:100%;
+	clear:both;
+	margin: 0 0 20px;
+	height:auto;
+	}
+
+img.thumbnail,
+img.wide-thumbnail,
+img.featuredimage {
+	-moz-transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	}
+
+img.thumbnail:hover,
+img.wide-thumbnail:hover,
+img.featuredimage:hover {
+	filter: alpha(opacity=70);
+	opacity: 0.7;
+	}
+
+img.avatar {
+	border:1px solid #e5e5e5;
+	padding:2px;
+	background:#fff;
+	float:right;
+	margin:0 0 15px 10px;
+	}
+
+/* -------------------[ Caption Styles for WP 2.6+ ]------------------- */
+/* -------------------[ Top Navigation ]------------------- */
+
+#topnav {
+	padding:0; 
+	margin:0;
+	background:#336699;
+	font-size:8pt;
+	border:1px solid #ddd;
+	}
+
+#topnav ul { 
+	margin:0; 
+	padding:0; 
+	list-style:none; 
+	line-height:1; 
+	margin:0;
+	border:3px solid #fff; 
+	}
+
+#topnav ul a  {
+	position:relative; 
+	display:block; 
+	z-index:90; 
+	padding:5px 10px; 
+	line-height:24px; 
+	text-decoration:none;
+	color:#bbb;
+	}
+
+#topnav ul li  { 
+	float:left; 
+	width: auto;
+	}
+
+#topnav ul a:hover {
+	color:#fff;
+	}
+
+#topnav ul ul  { 
+	position: absolute; 
+	left: -999em; 
+	width: 222px; 
+	z-index:99999;
+	border:0;
+	}
+
+#topnav ul ul a  {
+	width:200px; 
+	line-height:20px;
+	border: 1px solid #000;
+	border-top:0;
+	background:#333;
+	}
+
+#topnav ul ul a:hover  {
+
+	}
+
+#topnav ul ul ul  {
+	border-top: 1px solid #000;
+	margin: -32px 0 0 221px; 
+	}
+
+#topnav ul li li { 
+	margin:0;
+	border:0;
+	}
+
+#topnav ul li:hover,
+#topnav ul li.hover  {
+	position:static;
+	}
+
+#topnav ul li:hover ul ul, 
+#topnav ul li.sfhover ul ul,
+#topnav ul li:hover ul ul ul, 
+#topnav ul li.sfhover ul ul ul,
+#topnav ul li:hover ul ul ul ul, 
+#topnav ul li.sfhover ul ul ul ul { 
+	left:-999em; 
+	}
+
+#topnav ul li:hover ul, 
+#topnav ul li.sfhover ul,
+#topnav ul li li:hover ul, 
+#topnav ul li li.sfhover ul,
+#topnav ul li li li:hover ul, 
+#topnav ul li li li.sfhover ul,
+#topnav ul li li li li:hover ul, 
+#topnav ul li li li li.sfhover ul {
+	left:auto;
+	}
+

@@ -1,0 +1,36 @@
+<center>
+  <div class="wrap" style="width:90%; max-width:860px;">
+    <div class="alert alert-info" style="height:100%">
+      <h5>글쓰기</h5>
+      <form action="/community/write_process" method="POST">
+          <select name="category_from_view" class="select-block mbl" id="myDropdown">
+            <optgroup label="분류">
+              <% if session[:user] == "DAILYVETadminDAILYVET" %>
+                <option value="0">공지사항</option>
+              <% end %>
+              <option value="1">일반</option>
+              <option value="2">질문</option>
+              <option value="3" class="highlighted fui-lock">정보</option>
+            </optgroup>
+          </select>
+        <input style="width :90%" type="text" name="title_from_view" placeholder="제목을 입력하세요" maxlength="28" >
+        <textarea style="width :90%; height:15em;"name="content_from_view"  placeholder="내용을 입력하세요"></textarea>
+        <p> 익명 </p>
+        <input type="checkbox" name="anomynous_flag">
+        <% if session[:user]=="DAILYVETadminDAILYVET" %>
+        <p> 상단노출 </p>
+        <input type="checkbox" name="notice_flag">
+        <% end %>
+
+      <div style="text-align:center;">
+        <div class = "span2" style="text-align:center;">
+        <input class = "btn btn-large btn-block btn-success" type="submit" >
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</center>
+<script>
+  $("#myDropdown").prop("selectedIndex", -1);
+</script>

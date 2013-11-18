@@ -1,0 +1,377 @@
+<table width="970" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td align="center">
+    <!--로그인박스 | 광고-->
+    <table border="0" cellspacing="0" cellpadding="0">
+      <tbody><tr>
+        <td><img src="/images/common/tit_join02.gif" width="954" height="113"></td>
+      </tr>
+    </tbody></table>
+    <table width="910" border="0" cellspacing="0" cellpadding="0">
+      <tbody><tr>
+        <td height="25" align="left"><img src="/images/common/join_tx04.gif" width="166" height="13"></td>
+      </tr>
+      <tr>
+        <td height="1" class="gr3"></td>
+      </tr>
+        <tr>
+        <td align="left" class="pd5 lh">회원님의 정보는 회원 본인의 동의없이 공개되지 않으며, 데일리팜 개인정보 보호정책에 의해 보호받고 있습니다.<br>
+          * 항목은 필수 항목이므로 반드시 기입해 주시기 바랍니다.</td>
+      </tr>
+      <tr>
+        <td height="15">&nbsp;</td>
+      </tr>
+        <tr>
+          <td height="25" align="left"><img src="/images/common/join_tx05.gif" width="166" height="13"></td>
+        </tr>
+        <tr>
+         <td height="15" align="center">
+             <table width="98%" border="1" cellspacing="1" cellpadding="0" bordercolor="#ffffff">
+               <tbody><tr bordercolor="#dddddd">
+                 <td width="20%" align="left" class="pd5 pdl20">아이디(ID) <span class="red">*</span></td>
+                 <td width="80%" align="left" class="pd5 pdl20 grf9"><input type="text" name="UserID" id="textfield2">
+                   <a href="javascript:UserID_Check()"><img src="/images/common/bt_s_d.gif" width="53" height="18" align="absmiddle"></a> 4자리에서 14자리까지 영문과 숫자로만 입력한 후 중복을 확인해 주세요.</td>
+                 </tr>
+               <tr bordercolor="#dddddd">
+                 <td width="20%" align="left" class="pd5 pdl20">비밀번호 <span class="red">*</span></td>
+                 <td width="80%" align="left" class="pd5 pdl20 grf9"><input type="password" name="UserPwd" id="textfield2">
+                   4자리에서 14자리까지 영문과 숫자로만 입력한 후 중복을 확인해 주세요.</td>
+                 </tr>
+               <tr bordercolor="#dddddd">
+                 <td align="left" class="pd5 pdl20">비밀번호 확인 <span class="red">*</span></td>
+                 <td align="left" class="pd5 pdl20 grf9"><input type="password" name="UserPwd2" id="textfield"> 
+                   비밀번호를 한번 더 입력하시기 바랍니다.</td>
+               </tr>
+               <tr bordercolor="#dddddd">
+                 <td align="left" class="pd5 pdl20">필명(닉네임)</td>
+                 <td align="left" class="pd5 pdl20 grf9"><input type="text" name="NickName" id="textfield3"></td>
+               </tr>
+              </tbody></table>
+          </td>
+      </tr>
+        <tr>
+         <td height="15"></td>
+      </tr>
+        <tr>
+          <td height="25" align="left"><img src="/images/common/join_tx06.gif" width="166" height="13"></td>
+        </tr>
+        <tr>
+          <td align="center"><table width="98%" border="1" cellspacing="1" cellpadding="0" bordercolor="#ffffff">
+            <tbody><tr bordercolor="#dddddd">
+              <td width="20%" align="left" class="pd5 pdl20">이름 <span class="red">*</span></td>
+              <td width="80%" align="left" class="pd5 pdl20 grf9"><input name="Name" type="text" id="textfield4" value="이홍석" readonly=""></td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td width="20%" align="left" class="pd5 pdl20">성별 <span class="red">*</span></td>
+              <td width="80%" align="left" class="pd5 pdl20 grf9">
+      <input name="Sex" type="radio" id="textfield4" value="0">여성 
+      <input name="Sex" type="radio" id="textfield4" value="1">남성
+    </td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td width="20%" align="left" class="pd5 pdl20">주민번호 <span class="red">*</span></td>
+              <td width="80%" align="left" class="pd5 pdl20 grf9"><input name="JuminNo1" type="text" id="textfield4" size="9" value="901219" readonly="">
+                -
+                  <input name="JuminNo2" type="text" id="textfield7" size="10" value="*******" readonly=""></td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20">직장/근무처 <span class="red">*</span></td>
+              <td align="left" class="pd5 pdl20 grf9"><input type="text" name="OrganName" id="textfield5"></td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20">이메일 <span class="red">*</span></td>
+              <td align="left" class="pd5 pdl20 grf9"><input type="text" name="Email1" id="textfield6">
+              @                                     <select name="Email2" class="graybox" onchange="mailConfirm()">
+                    <option>선택</option>
+                    <option value="hanmail.net">hanmail.net</option>
+                    <option value="chollian.net">chollian.net</option>
+                    <option value="dreamwiz.com">dreamwiz.com</option>
+                    <option value="empal.com">empal.com</option>
+                    <option value="freechal.com">freechal.com</option>
+                    <option value="hanafos.com">hanafos.com</option>
+                    <option value="hanmir.com">hanmir.com</option>
+                    <option value="hitel.net">hitel.net</option>
+                    <option value="hotmail.com">hotmail.com</option>
+                    <option value="korea.com">korea.com</option>
+                    <option value="kornet.net">kornet.net</option>
+                    <option value="lycos.co.kr">lycos.co.kr</option>
+                    <option value="nate.com">nate.com</option>
+                    <option value="naver.com">naver.com</option>
+                    <option value="nownuri.net">nownuri.net</option>
+                    <option value="paran.com">paran.com</option>
+                    <option value="unitel.co.kr">unitel.co.kr</option>
+                    <option value="yahoo.co.kr">yahoo.co.kr</option>
+                    <option value="1">직접입력</option>
+                  </select>&nbsp;
+                  <input type="text" name="Email3" id="textfield8"></td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20 lh">연락처<span class="red">*</span></td>
+              <td align="left" class="pd5 pdl20 grf9"><table border="0" cellspacing="3" cellpadding="0">
+                  <tbody><tr>
+                    <td width="60" class="bl7">전화번호</td>
+                    <td class="grf">
+                                          <select name="PhoneNo1" class="full">
+                                            <option value="02">02</option>
+                                            <option value="031">031</option>
+                                            <option value="032">032</option>
+                                            <option value="033">033</option>
+                                            <option value="041">041</option>
+                                            <option value="042">042</option>
+                                            <option value="043">043</option>
+                                            <option value="051">051</option>
+                                            <option value="052">052</option>
+                                            <option value="053">053</option>
+                                            <option value="054">054</option>
+                                            <option value="055">055</option>
+                                            <option value="061">061</option>
+                                            <option value="062">062</option>
+                                            <option value="063">063</option>
+                                            <option value="064">064</option>
+                                          </select>
+-
+<input name="PhoneNo2" type="text" id="textfield9" size="6">
+-
+<input name="PhoneNo3" type="text" id="textfield10" size="6">
+<span class="grf">
+<input type="radio" name="PhoneNo4" value="1" id="RadioGroup1_0">
+</span>직장 <span class="grf">
+<input type="radio" name="PhoneNo4" value="2" id="RadioGroup1_">
+</span>집</td>
+                  </tr>
+                  <tr>
+                    <td class="bl7">휴대폰</td>
+                    <td>
+      <select name="HPhoneNo1" class="full">
+        <option value="010">010</option>
+        <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+      </select>
+      -
+      <input name="HPhoneNo2" type="text" id="textfield11" size="6">
+      -
+      <input name="HPhoneNo3" type="text" id="textfield12" size="6"></td>
+                  </tr>
+                </tbody></table></td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20">팩스번호<span class="red"></span></td>
+              <td align="left" class="pd5 pdl20 bl7"><span class="bl7">전화번호&nbsp;&nbsp;&nbsp; <span class="grf">
+                   <select name="FaxNo1" class="full">
+                    <option value="02">02</option>
+                    <option value="031">031</option>
+                    <option value="032">032</option>
+                    <option value="033">033</option>
+                    <option value="041">041</option>
+                    <option value="042">042</option>
+                    <option value="043">043</option>
+                    <option value="051">051</option>
+                    <option value="052">052</option>
+                    <option value="053">053</option>
+                    <option value="054">054</option>
+                    <option value="055">055</option>
+                    <option value="061">061</option>
+                    <option value="062">062</option>
+                    <option value="063">063</option>
+                    <option value="064">064</option>
+                  </select>
+-
+<input name="FaxNo2" type="text" id="textfield13" size="6">
+-
+<input name="FaxNo3" type="text" id="textfield14" size="6">
+              </span></span></td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20">선물받을 주소<span class="red">*</span></td>
+              <td align="left" class="pd5 pdl20 grf9"><table border="0" cellspacing="3" cellpadding="0">
+                <tbody><tr>
+                  <td class="bl7"><span class="grf">
+                    <input name="ZipCode" type="text" id="textfield19" size="10" onmousedown="findAddr()">
+       </span>  
+      <a href="javascript:findAddr()"><img src="/images/common/bt_s_o.gif" width="70" height="18" vspace="1" align="absmiddle"></a>
+    </td>
+              </tr>
+                <tr>
+                  <td class="bl7"><span class="grf">
+                    <input name="SiDo" type="text" id="textfield15" size="10">
+                    </span><span class="grf">
+                      <input name="GuGun" type="text" id="textfield16" size="10">
+                      </span><span class="grf">
+                        <input name="Dong" type="text" id="textfield17" size="20">
+                      </span></td>
+                  </tr>
+                <tr>
+                  <td class="bl7"><span class="grf">
+                    <input name="Address2" type="text" id="textfield18" size="50">
+                  </span></td>
+                  </tr>
+              </tbody></table></td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20">직업 <span class="red">*</span></td>
+              <td align="left" class="pd5 pdl20 grf9">
+      <select name="JobKind">
+        <option>-----선택------</option>
+        <option value="1">약사</option>
+        <option value="2">의사</option>
+        <option value="3">한약사</option>       
+        <option value="4">약국종사자</option>
+        <option value="5">병원/의료 종사자</option>
+        <option value="6">제약산업 종사자</option>
+        <option value="7">유통/무역 종사자</option>
+        <option value="8">약대생</option>
+        <option value="9">의대생</option>       
+        <option value="10">기타</option>        
+      </select>
+
+    </td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20">면허번호 <span class="red">*</span></td>
+              <td align="left" class="pd5 pdl20 grf9"><span class="grf">
+                <input name="LicenseNo" type="text" id="textfield20" size="10">
+              </span>의사, 약사에 한해 입력해 주세요.</td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20">약사직종</td>
+              <td align="left" class="pd5 pdl20 grf9">
+          <select name="PharmKind">
+        <option value="0">-----선택--------</option>
+        <option value="1">개국약사 </option>
+        <option value="2">관리약사 </option>
+        <option value="3">근무약사 </option>
+        <option value="4">병원약사 </option>
+        <option value="5">공직약사 </option>
+        <option value="6">생산약사(제약) </option>
+        <option value="7">유통약사(도매/무역) </option>
+        <option value="8">휴직약사 </option>
+    </select>
+ 
+                약사에 한해 선택해주세요.</td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20">전공구분</td>
+              <td align="left" class="pd5 pdl20 grf9">
+    <select name="DoctorKind">
+      <option value="0">-----선택------</option>
+        <option value="1"> 가정의학과 </option>
+        <option value="2"> 간호학과 </option>
+        <option value="3"> 감염내과 </option>
+        <option value="4"> 결핵및호흡기내과 </option>
+        <option value="5"> 기생충학교실 </option>
+        <option value="6"> 기타 </option>
+        <option value="7"> 내과 </option>
+        <option value="8"> 내분비대사내과 </option>
+        <option value="9"> 류마티스내과 </option>
+        <option value="10"> 마취과 </option>
+        <option value="11"> 면역학교실 </option>
+        <option value="12"> 미생물학교실 </option>
+        <option value="13"> 법의학교실 </option>
+        <option value="14"> 병리학교실 </option>
+        <option value="15"> 비뇨기과 </option>
+        <option value="16"> 산부인과 </option>
+        <option value="17"> 산업의학과 </option>
+        <option value="18"> 생리학교실 </option>
+        <option value="19"> 생화학교실 </option>
+        <option value="20"> 성형외과 </option>
+        <option value="21"> 소아과 </option>
+        <option value="22"> 소화기내과 </option>
+        <option value="23"> 순환기내과 </option>
+        <option value="24"> 신경과 </option>
+        <option value="25"> 신경외과 </option>
+        <option value="26"> 신경정신과 </option>
+        <option value="27"> 신장내과 </option>
+        <option value="28"> 안과 </option>
+        <option value="29"> 알레르기내과 </option>
+        <option value="30"> 약리학교실 </option>
+        <option value="31"> 약학과 </option>
+        <option value="32"> 예방의학과 </option>
+        <option value="33"> 예방의학교실 </option>
+        <option value="34"> 응급의학과 </option>
+        <option value="35"> 의료관리학교실 </option>
+        <option value="36"> 의사학교실 </option>
+        <option value="37"> 이비인후과 </option>
+        <option value="38"> 일반GP </option>
+        <option value="39"> 일반외과 </option>
+        <option value="40"> 임상병리과 </option>
+        <option value="41"> 재활의학과 </option>
+        <option value="42"> 정신과 </option>
+        <option value="43"> 정형외과 </option>
+        <option value="44"> 제약학과 </option>
+        <option value="45"> 진단방사선과 </option>
+        <option value="46"> 치과 </option>
+        <option value="47"> 치료방사선과 </option>
+        <option value="48"> 피부과 </option>
+        <option value="49"> 해부병리과 </option>
+        <option value="50"> 해부학교실 </option>
+        <option value="51"> 핵의학과 </option>
+        <option value="52"> 혈액종양내과 </option>
+        <option value="53"> 호흡기내과 </option>
+        <option value="54"> 흉부외과 </option>
+    </select>
+
+                의사에 한해 선택해주세요.</td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20">학교명 <span class="red">*</span></td>
+              <td align="left" class="pd5 pdl20 grf9"><span class="grf">
+                <input name="UnivName" type="text" id="textfield21">
+              학교명은 전체 이름을 적어 주세요. (에: 연세대, 이화여대...)</span></td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20">입학년도 <span class="red">*</span></td>
+              <td align="left" class="pd5 pdl20 grf9"><span class="grf">
+                <input name="Hakbun" type="text" id="textfield21">
+                입학년도를 적어 주세요. (예: 1992, 2001)</span></td>
+              </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20">뉴스레터 설정</td>
+              <td align="left" class="pd5 pdl20 grf9"><table border="0" cellspacing="3" cellpadding="0">
+                <tbody><tr>
+                  <td width="100" class="bl7">이메일 서비스</td>
+                  <td class="grf"><input type="radio" name="mailSend" value="1" checked="">
+                    수신
+                       <input type="radio" name="mailSend" value="2">
+                      수신하지 않음</td>
+                </tr>
+                <tr>
+                  <td class="bl7">문자 서비스 </td>
+                  <td class="grf"><input type="radio" name="smsSend" value="1" checked="">
+                    수신
+                   <input type="radio" name="smsSend" value="2">
+                    수신하지 않음</td>
+                  </tr>
+              </tbody></table></td>
+            </tr>
+            <tr bordercolor="#dddddd">
+              <td align="left" class="pd5 pdl20">사진등록</td>
+              <td align="left" class="pd5 pdl20 grf"><a href="javascript:photoUpload();"><img src="/images/common/bt_s_p.gif" width="70" height="18" align="absmiddle"> 블로그, 지인찾기 등을 위해 사진 등록을 꼭 해주시기 바랍니다.</a></td>
+            </tr>
+
+
+      
+
+
+           </tbody></table>
+    </td>
+        </tr>
+        <tr>
+          <td height="15"></td>
+        </tr>
+        <tr>
+          <td align="center"><span class="grf">
+            <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_4">
+          </span>위의 내용으로 회원가입을 합니다.</td>
+        </tr>
+        <tr>
+          <td height="15"></td>
+        </tr>
+        <tr>
+          <td align="center"><a href="/index.html"><img src="/images/common/bt_join03.gif" width="58" height="45"></a> <a href="javascript:memSave()"><img src="/images/common/bt_join02.gif" width="82" height="45"></a></td>
+        </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table>

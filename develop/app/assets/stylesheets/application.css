@@ -1,0 +1,325 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body{ 
+font: Nunum Gothic, 나눔고딕, "Malgun Gothic", "맑은 고딕";
+}
+div.img-container{
+  text-align:center; 
+}
+div.img-container img{
+  margin:0px auto 0px auto; 
+  max-width:30%;
+  height:auto;
+}
+div.comment{
+height: auto;
+}
+div.comment .comment_title {
+height: 30px;
+border-radius: 5px;
+border : 2px solid #CCC;
+margin : 1px ;
+line-height:30px;
+padding : 0 0 0 12px;
+font-weight: bold;
+background : #f5f5f5
+}
+div.comment_body {
+height:auto;
+}
+div.comment_editor{
+margin:15px 1px 20px 1px;
+padding:12px 16px 20px;
+background: #FCFCFC;
+border: 1px solid #DDD;
+border-bottom-color: #CCC;
+border-radius: 8px;
+box-shadow: 0 1px 3px -1px rgba(0,0,0,.1);
+font-family: '굴림';
+line-height: 140%;
+color: #666666;
+font-size: 12px;
+}
+div.comment_form{
+font-family: '굴림';
+line-height: 140%;
+color: #666666;
+margin-top:0em;
+font-size: 12px;
+text-align:left;
+}
+div.comment_form .textbox{
+position:relative;
+margin: 0 60px;
+font-family: '굴림';
+line-height: 140%;
+color: #666666;
+font-size:12px;
+text-align:left;
+}
+textarea.textarea{
+height:auto;
+overflow:hidden;
+outline-color: #6495ed;
+width: 100% !important;
+min-height: 54px;
+margin: 0;
+padding: 0;
+border: 1px solid;
+border-radius: 3px;
+-webkit-box-shadow: inset 1px 1px 3px #EEE;
+box-shadow: inset 1px 1px 3px #EEE;
+font-size: 12px;
+line-height: 1.5;
+color: #666666;
+border-color: #AAA;
+
+}
+textarea.textarea:focus{
+outline-offset: -2px;
+outline-color: #6495ed;
+background-color: #FFF;
+border: 1px solid !important;
+}
+input.button{
+top: 0;
+right: -60px;
+max-width: 56px;
+height: 56px;
+line-height: 54px;
+margin: 0;
+padding: 0;
+display: inline-block;
+#FFF 0%,#F3F3F3 100%);
+border: 1px solid;
+border-color: #CCC #C6C6C6 #C3C3C3 #CCC;
+border-radius: 3px;
+white-space: nowrap;
+cursor: pointer;
+text-decoration: none !important;
+text-align: center;
+text-shadow: 0 1px 0 #FFF;
+-webkit-box-shadow: inset 0 0 1px 1px #FFF,0 1px 1px rgba(0,0,0,.1);
+box-shadow: inset 0 0 1px 1px #FFF,0 1px 1px rgba(0,0,0,.1);
+-ms-transition: border .4s,background .4s;
+-moz-transition: border .4s,background .4s;
+-webkit-transition: border .4s,background .4s;
+transition: border .4s,background .4s;
+font-family: 'Segoe UI',Meiryo,'나눔고딕',NanumGothic,ng,'맑은 고딕','Malgun Gothic','돋움',Dotum,AppleGothic,sans-serif;
+font-size: 12px;
+vertical-align: middle;
+color: #666666;
+align-items: flex-start;
+box-sizing: border-box;
+-webkit-appearance: push-button;
+-webkit-rtl-ordering: logical;
+-webkit-user-select: text;
+font: -webkit-small-control;
+letter-spacing: normal;
+word-spacing: normal;
+text-transform: none;
+text-indent: 0px;
+-webkit-writing-mode: horizontal-tb;
+}
+
+div.comment_header{
+margin-bottom: 8px;
+font-family: '굴림';
+line-height: 140%;
+color: #666666;
+font-size: 12px;
+text-align: left ;
+}
+span.order{
+font-weight: bold;
+}
+span.user_name{
+font-weight: bold;
+color: #444;
+font-family: '굴림';
+line-height: 140%;
+}
+div.comment_each{
+padding:10px;
+border:1px;
+margin:-1px;
+border-bottom:1px solid #CCC;
+}
+div.comment_body{
+text-align:left;
+}
+div.comment_header .right{
+width:61px;
+font-color:#ffffff !important;
+}
+a.comment_up{
+color:#336699;
+font-weight:bold;
+}
+a.comment_down{
+color:#bdc3c7 !important;
+font-weight:bold;
+}
+div.center{
+  text-align:center;
+}
+/* Icon font for arrow icons */
+@font-face {
+        font-family: 'icomoon';
+  src:url('/font/icomoon.eot');
+        src:url('/font/icomoon.eot?#iefix') format('embedded-opentype'),
+                url('/font/icomoon.woff') format('woff'),
+                url('/font/icomoon.ttf') format('truetype'),
+                url('/font/icomoon.svg#icomoon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+} /* Iconfont by Icomoon http://icomoon.io/ */
+/* Accordion style */
+.cbp-ntaccordion {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+}
+
+.cbp-ntaccordion .cbp-ntcontent ul.square li {
+        list-style: square;
+        font-family: 'NanumBarunGothicBold';
+}
+
+.cbp-ntsubaccordion {
+        list-style: none;
+}
+
+.cbp-ntsubaccordion .cbp-ntcontent p {
+        font-size: 1em;
+}
+
+.cbp-ntsubaccordion .cbp-ntcontent td {
+        width: 14em;
+}
+
+.cbp-ntaccordion .cbp-nttrigger {
+        cursor: pointer;
+} 
+
+.cbp-ntaccordion h3 {
+        margin: 0 0 1em;
+        padding: 1em 0 0.5em;
+        border-bottom: 1px solid #ddd;
+        font-size: 2.2em;
+        font-family: 'NanumBarunGothic';
+/*         letter-spacing: 0.03em; */
+        color: #47a3da;
+/*         font-weight: 300; */
+}
+
+.cbp-ntaccordion h4 {
+        font-size: 1.4em;
+/*         text-transform: uppercase; */
+        letter-spacing: 0.1em;
+        padding: 0.5em 0 0.5em;
+        margin: 0 0 0.5em;
+        color: #47a3da;
+}
+
+.cbp-ntaccordion h5 {
+        font-size: 1.2em;
+        color: #aaa;
+        padding: 0.5em 0 0.5em;
+        margin: 0 0 0.5em;
+}
+
+.cbp-ntaccordion .cbp-ntcontent p,
+.cbp-ntaccordion .cbp-ntcontent ul li {
+        color: #888;
+        font-size: 1.2em;
+/*         font-weight: 300; */
+        line-height: 1.5;
+        padding: 0.2em 0 1.5em;
+        margin: 0;
+}
+
+.cbp-ntaccordion .cbp-ntcontent p strong {
+        font-family: 'NanumBarunGothicBold', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+}
+
+/* Arrow icons */
+.cbp-ntaccordion > li > .cbp-nttrigger:before,
+.cbp-ntsubaccordion > li > .cbp-nttrigger:before {
+        font-family: 'icomoon';
+        speak: none;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        color: #ddd;
+        margin-right: 0.5em;
+        -webkit-font-smoothing: antialiased;
+}
+
+.cbp-ntaccordion > li > .cbp-nttrigger:before {
+        font-size: 75%;
+}
+
+.cbp-ntaccordion > li > .cbp-nttrigger:before {
+        /*content: "\36";*/
+}
+.cbp-ntaccordion > li > .cbp-nttrigger:hover:before {
+        /*content: "\35";*/
+        color: inherit;
+}
+.cbp-ntaccordion > li.cbp-ntopen > .cbp-nttrigger:before,
+.no-js .cbp-ntaccordion > li > .cbp-nttrigger:before,
+#logo span {
+        /*content: "\34";*/
+        color: inherit;
+}
+
+.cbp-ntsubaccordion > li > .cbp-nttrigger:before {
+        /*content: "\32";*/
+}
+.cbp-ntsubaccordion > li > .cbp-nttrigger:hover:before {
+        /*content: "\33";*/
+        color: inherit;
+}
+.cbp-ntsubaccordion > li.cbp-ntopen > .cbp-nttrigger:before,
+.no-js .cbp-ntsubaccordion > li > .cbp-nttrigger:before {
+        /*content: "\31";*/
+        color: inherit;
+}
+
+/* Initial height is zero */
+.cbp-ntaccordion .cbp-ntcontent {
+        height: 0;
+        overflow: hidden;
+}
+
+/* When open, set height to auto */
+.cbp-ntaccordion .cbp-ntopen > .cbp-ntcontent,
+.cbp-ntsubaccordion .cbp-ntopen > .cbp-ntcontent,
+.no-js .cbp-ntaccordion .cbp-ntcontent {
+        height: auto;
+}
+
+/* Example for media query */
+@media screen and (max-width: 32em) { 
+
+        .cbp-ntaccordion {
+                font-size: 70%;
+        }
+
+}

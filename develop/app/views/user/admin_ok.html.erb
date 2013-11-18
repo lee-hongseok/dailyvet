@@ -1,0 +1,62 @@
+<a href="/user/admin_ok?find=1"> 수의대생 </a>
+<a href="/user/admin_ok?find=2"> 반려동물수의사 </a>
+<a href="/user/admin_ok?find=3"> 산업동물수의사 </a>
+<a href="/user/admin_ok?find=4"> 야생동물수의사 </a>
+<a href="/user/admin_ok?find=5"> 수의직공무원 </a>
+<a href="/user/admin_ok?find=6"> 수의관련업체 </a>
+<a href="/user/admin_ok?find=7"> 수의사회 </a>
+<a href="/user/admin_ok?find=8"> 수의과대학교직원 </a>
+<a href="/user/admin_ok?find=9"> 수의장교 </a>
+<a href="/user/admin_ok?find=10"> 공중방역수의사 </a>
+<a href="/user/admin_ok?find=11"> 기타 </a>
+<a href="/user/admin_ok?find=12"> 일반회원 </a>
+
+<% @user.each do |x|%>
+  <div class = "each">
+  <a href="/user/detail?id=<%= x.id %>" ><%=x.name%></a>
+  <p> 유저 아이디 : <%= x.user_id %> </p> 
+  <p> 직업 분야   : <% if x.field == 12 %>
+일반회원
+      <% elsif x.field ==1%>
+수의대생
+      <% elsif x.field ==2%>
+      반려동물수의사
+      <% elsif x.field ==3%>
+산업동물수의사
+      <% elsif x.field ==4%>
+야생동물수의사  
+      <% elsif x.field ==5%>
+수의직공무원
+      <% elsif x.field ==6%>
+수의관련업체
+      <% elsif x.field ==7%>
+수의사회
+      <% elsif x.field ==8%>
+수의과대학교직원
+      <% elsif x.field ==9%>
+수의장교
+      <% elsif x.field ==10%>
+공중방역수의사
+      <% elsif x.field ==11%>
+기타
+      <% end %></p>
+  <p> 유저 이름   :<%= x.name %> </p>
+  <p> 유저 이메일   :<%= x.email %> </p>
+  <p> 수의사 번호 :<%= x.vet_number %> </p>
+  <p> 유저 등급  </p>
+  <form action = "/user/level_modify">
+    <input type="hidden" name="id" value=<%=x.id%>>
+    <select type="text" name="level" id="field"> 
+      <option val=""disabled selected style="display:none;"><%=x.level%></option>
+      <option val=0>운영자권한</option>
+      <option val=1>level 1</option>
+      <option val=2>level 2</option>
+      <option val=3>level 3</option>
+      <option val=4>level 4</option>
+      <option val=5>level 5</option>
+    </select>
+    <input type="submit" value="등급 변경">
+  </form>
+
+  </div>
+<%end%>

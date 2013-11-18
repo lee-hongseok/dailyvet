@@ -1,0 +1,59 @@
+<center>
+  <div class="wrap" style="width:90%; max-width:860px;">
+    <div class="alert alert-info" style="height:100%">
+      <h1>게시물 수정</h1>
+      <form action="/community/update_process" method="POST">
+        <select name="category_from_view" class="select-block mbl">
+          <optgroup label="분류">
+            <% if session[:user] == "DAILYVETadminDAILYVET" %>
+              <option value="0" 
+              <% if @post.category == 0 %> 
+              selected="selected"
+              <% end %>
+              >
+              공지사항</option>
+            <% end %>
+            <option value="1"
+              <% if @post.category == 1 %> 
+              selected="selected"
+              <% end %>
+              >
+            일반</option>
+            <option value="2"
+              <% if @post.category == 2 %> 
+              selected="selected"
+              <% end %>
+              >
+            질문</option>
+            <option value="3" class="highlighted fui-lock"
+              <% if @post.category == 3 %> 
+              selected="selected"
+              <% end %>
+              >
+            정보</option>
+          </optgroup>
+        </select>
+        <input type="hidden" name="id" value="<%=@post.id%>">
+        <p>제목 : <input class = "span8" type="text" name="title_from_view" value="<%= @post.title %>" maxlength="30"></p>
+        <p>내용 : <textarea class="span8" style="height:70%;" name="content_from_view" ><%=@post.content%></textarea></p>
+        <p> 익명 </p>
+        <% if @post.anomynous_flag == true %>
+          <input type="checkbox" name="anomynous_flag" checked >
+        <%else%>
+          <input type="checkbox" name="anomynous_flag"  >
+        <%end%>
+        <% if session[:user]=="DAILYVETadminDAILYVET" %>
+        <p> 상단노출 </p>
+          <%if @post.notice_flag ==true%>
+            <input type="checkbox" name="notice_flag" value=true checked>
+          <% else %>
+            <input type="checkbox" name="notice_flag" value=true>
+          <% end %>
+        <% end %>
+      <div class = "span2">
+      <input class = "btn btn-large btn-block btn-success" type="submit" value="수정하기!">
+      </div>
+      </form>
+    </div>
+  </div>
+</center>

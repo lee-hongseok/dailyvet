@@ -1,0 +1,32 @@
+/* -- Google Fonts Styles -- */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic);
+
+body,
+h1,h2,h3,h4,h5,h6,h7,
+#sitetitle .title,
+#searchform #submitbutton,
+#searchform #searchfield,
+p.email-form .subbutton,
+p.email-form .sub,
+#commentform input#submit {
+	font-family: 'Open Sans',arial,helvetica,sans-serif;
+	}
+
+.meta {
+	font-size:10px !important;
+	line-height: 1.5em;
+	}
+
+#topnav {
+	font-size:8pt;
+	font-weight:bold;
+	}
+
+#catnav {
+	font-size:8pt;
+	font-weight:normal;
+	font-weight:bold;
+	}
+
+h1,h2,h3,h4,h5,h6,h7 { font-weight:normal; }

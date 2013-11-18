@@ -1,0 +1,40 @@
+<h1> <%=@user.user_id%> 상세정보 </h1>
+이름 <p> <%=@user.name%></p>
+아이디 <p> <%=@user.user_id%> </p>
+필명 <p> <%=@user.nickname %> </p>
+E-mail <p> <%=@user.email %> </p>
+휴대폰 번호 <p> <%=@user.phone_number %> </p>
+주소 <p> <%=@user.address %> </p>
+필드 
+    <p><% if @user.field == 12 %>
+일반회원
+      <% elsif @user.field ==1%>
+수의대생
+      <% elsif @user.field ==2%>
+      반려동물수의사
+      <% elsif @user.field ==3%>
+산업동물수의사
+      <% elsif @user.field ==4%>
+야생동물수의사  
+      <% elsif @user.field ==5%>
+수의직공무원
+      <% elsif @user.field ==6%>
+수의관련업체
+      <% elsif @user.field ==7%>
+수의사회
+      <% elsif @user.field ==8%>
+수의과대학교직원
+      <% elsif @user.field ==9%>
+수의장교
+      <% elsif @user.field ==10%>
+공중방역수의사
+      <% elsif @user.field ==11%>
+기타
+      <% end %></p>
+수의사면허번호 <p> <%= @user.vet_number %> </p>
+직장명 <p> <%= @user.work_name %> </p>
+직장연락처<p> <%= @user.work_number %> </p>
+메일수신설정<p> <%= @user.mail_receive %> </p>
+SMS수신 설정<p> <%= @user.sms_receive %> </p>
+학번<p> <%= @user.student_number %> </p>
+학교명<p> <%= @user.university %> </p>

@@ -1,0 +1,325 @@
+<style>
+textarea.detail{
+border:0px !important;
+margin:0px !important;
+height:90% !important;
+}
+
+input{
+border:0px !important;
+margin:0px !important;
+}
+div.wrap{
+border : 1px solid #CCC;
+}
+div.line{
+width:100%;
+border-bottom:1px solid #D6DCE9;
+}
+div.left{
+background-color : #F5F7FA;
+border-right:1px solid #D6DCE9;
+color:#5D6D9A;
+font-weight:bold;
+font-size:15px;
+line-height:60px;
+padding:0 0 0 20px;
+float:left;
+width:20%;
+min-width:80px;
+border-bottom:1px solid #CCC;
+height:60px;
+}
+div.right{
+padding:0 0 0 10px;
+line-height:60px;
+float:left;
+width:75%;
+border-bottom:1px solid #CCC;
+height:60px;
+}
+div.detailleft{
+background-color : #F5F7FA;
+border-right:1px solid #D6DCE9;
+color:#5D6D9A;
+font-weight:bold;
+font-size:15px;
+line-height:60px;
+padding:0 0 0 20px;
+float:left;
+width:20%;
+min-width:80px;
+border-bottom:1px solid #CCC;
+height:200px;
+}
+div.detailright{
+padding:0 0 0 10px;
+line-height:60px;
+float:left;
+width:75%;
+border-bottom:1px solid #CCC;
+height:200px;
+
+}
+div.clear{
+clear:both;
+}
+</style>
+    <div class="container">
+      <!-- 배너자리시작! -->
+      <center>
+      <div  style="max-width:860px; width:auto; height:90px; border: 3px solid;">
+        배너자리
+      </div>
+      </center>
+      <!-- 배너자리끝! -->
+        <center>
+      <br>
+      <br>
+      <br>
+        <div style="height:14px;">
+      글쓰기  반려동물임상 | 산업동물임상 | 공무원 | 일반업체 | 기타 구직글보기
+      </div>
+      </center>
+      <br>
+      <br>
+      <br>
+      <div class="demo-row">
+        <div class="demo-content-wide">
+        <div class = "wrap">
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            분야
+          </div>
+          <div class ="right">
+            <%=@clicked_post.category%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            제목 
+
+          </div>
+          <div class ="right">
+            <%=@clicked_post.title%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            담당업무
+
+          </div>
+          <div class ="right">
+            <%=@clicked_post.each%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            근무시간
+          </div>
+          <div class ="right">
+            <%=@clicked_post.hour%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            직장명 
+          </div>
+          <div class ="right">
+            <%=@clicked_post.name%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            근무지주소
+          </div>
+          <div class ="right">
+            <%=@clicked_post.address%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            모집인원
+          </div>
+          <div class ="right">
+            <%=@clicked_post.to%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            급여
+          </div>
+          <div class ="right">
+            <%=@clicked_post.pay%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            응시자격
+          </div>
+          <div class ="right">
+            <%=@clicked_post.qualification%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            경력사항
+          </div>
+          <div class ="right">
+            <%=@clicked_post.experience%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            우대조건
+          </div>
+          <div class ="right">
+            <%=@clicked_post.favorite%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            전화번호
+          </div>
+          <div class ="right">
+            <%=@clicked_post.tel%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            핸드폰 번호
+          </div>
+          <div class ="right">
+            <%=@clicked_post.hp%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            채용방법
+          </div>
+          <div class ="right">
+            <%=@clicked_post.method%>
+          
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            마감일
+          </div>
+          <div class ="right">
+            <%=@clicked_post.dead_line%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="detailleft" >
+            세부사항
+          </div>
+          <div class ="detailright">
+            <%=@clicked_post.detail%>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+        </div>
+            <br>
+            <div style="float:left;">  
+            <button class="btn btn-small" type="button" onclick="location.href='/job'"><span class="fui-search"> 목록</span></button>
+            </div>
+            <div style="float:right;">
+            <input class="btn btn-small" type="submit" onclick="location.href='/job/write'" value="글쓰기">
+            <% if @clicked_post.id == session[:id] %>
+            <button class="btn btn-small" type="submit" onclick="location.href='/job/update?id=<%=@clicked_post.id%>&page_number=<%=@page_number%>'" >수정</button>
+            <button class="btn btn-small" type="submit" onclick="location.href='/job/delete?id=<%=@clicked_post.id%>&page_number=<%=@page_number%>'" >삭제</button>
+            <% end%>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+      <div class = "comment">
+        <div class = "comment_title">
+          <p>Comments '<%=@clicked_post.comments.count%>'<p>
+        </div>
+        <!-- 리플을 보는 부분-->
+        <% order = 1 %>
+        <% @clicked_post.comments.each do |comment| %>
+        <div class = "comment_each">
+          <div class = "comment_header " style="float:left;">
+           <p> <span class ="order"><%=order%>. </span> <span class = "user_name"> 
+           <% if comment.anomynous_flag == true%>
+           필명숨김
+           <% else %>
+           <%=comment.user.name%> 
+           <% end %>
+           </span> <span>  <%=comment.created_at.to_s[5..15]%></span></p>
+          </div>
+          <div class = "comment_header" style="float:right;">
+          </div>
+          <div class = "clear">
+          </div>
+          <div class = "comment_body">
+            <%= comment.content %>
+          </div>
+        </div>
+          <% order += 1%>
+        <% end %>
+        <!-- 리플 보는 부분 끝 -->
+        <!-- 리플 쓰는 부분 시작 -->
+        <div class = "comment_editor">
+          <form class = "comment_form" action="/job/reply_process" method="post">
+            <div class = "textbox">
+                <div style="float:left;width:70%; text-align:right;">
+                  <textarea class = "textarea" name="reply_content_from_view"></textarea>
+                </div>
+                <input type="hidden" value="<%=@clicked_post.id%>" name="job_post_id_from_view">
+                <input type="hidden" value="<%=@page_number%>" name="page_from_view">
+
+                <div style="float:right; width:30%; text-align:center;">
+                  <input type="submit" value="등록" class ="button">
+                </div>
+                <div class = "clear"></div>
+            </div>
+          </form>
+        </div>
+      <!-- 리플 쓰는 부분 끝 -->
+      </div>
+      <!-- 리플 전체 div 끝 -->
+        </div>
+      </div>
+    </div>
+
+
+
+<script>
+  $("#myDropdown").prop("selectedIndex", -1);
+</script>

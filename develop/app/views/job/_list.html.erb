@@ -1,0 +1,218 @@
+    <div class="container">
+      <!-- 배너자리시작! -->
+      <center>
+      <div  style="width:646px; height:90px; border: 3px solid;">
+        배너자리
+      </div>
+      </center>
+      <!-- 배너자리끝! -->
+        <center>
+        <div style="height:14px;">
+      글쓰기  반려동물임상 | 산업동물임상 | 공무원 | 일반업체 | 기타 구직글보기
+      </div>
+      </center>
+      <div class="demo-row">
+        <div class="demo-content-wide">
+        <table class="rwd-table">
+        <tbody>
+          <tr height="10px" class="even">
+                <td width="10%">구분</td>
+                <td width="70%">제목</td>
+                <td width="10%">추천</td>
+                <td width="10%">조회</td>
+          </tr>
+              <%@notice.each do |x|%>
+                  <% if x.notice_flag == true %> 
+                <tr class="even">
+                  <td>공지</td>
+                  <td>
+                  <a style="font-weight:bold; color:#336699;" href="/job/detail?page=<%=@page_number%>&id=<%=x.id%>"><%=x.title%>
+                      <%unless x.comments.count == 0%>
+                      [<%=x.comments.count%>]
+                      <%end%>
+                  </a>
+                  </td>
+                  <td></td>
+                  <td><%=x.counter%></td>
+                  <td></td>
+                </tr>
+                  <% end%>
+              <%end%>
+          <% pointer=0%>
+          <% @posts.each do |x| %>
+          <% pointer = pointer + 1%>
+              <% if pointer.odd? == true %> 
+                <tr class="odd">
+                  <td>
+                    <% if x.category ==0 %>
+                      공지
+                    <% else %> 
+
+                      <%=x.category%>
+                    <% end %>
+                  </td>
+                  <td>
+                  <% if x.delete_flag == true %> 
+                  <a  style=" color:#cacfd2;">삭제된 글입니다[<%=x.title[0..10]%>] </a>
+                  <% else%>                  
+                  <a href="/job/detail?page=<%=@page_number%>&id=<%=x.id%>"><%=x.title%>
+                      <%unless x.comments.count == 0%>
+                      [<%=x.comments.count%>]
+                      <%end%>
+                  </a>
+                  <% end%> 
+                  </td>
+                  <td>보트</td>
+                  <td><%=x.counter%></td>
+                  <td></td>
+                </tr>
+                <!--
+                <tr class="odd">
+                  <td><%=x.category%></td>
+                  <td><%=x.title%></td>
+                  <td></td>
+                  <td><%=x.counter%></td>
+                  <td><%=x.user_id%></td>
+                </tr>
+                --!>
+                
+              <%else %> 
+                <tr class="even">
+                  <td>
+                        <% if x.category ==0 %>
+                          공지
+                        <% else %> 
+
+                          <%=x.category%>
+                        <% end %>
+                  </td>
+                  <td>
+                  <% if x.delete_flag == true %> 
+                  <a  style=" color:#cacfd2;">삭제된 글입니다[<%=x.title[0..10]%>] </a>
+                  <% else%>                  
+                  <a href="/job/detail?page=<%=@page_number%>&id=<%=x.id%>"><%=x.title%>
+                      <%unless x.comments.count == 0%>
+                      [<%=x.comments.count%>]
+                      <%end%>
+                  </a>
+                  <% end%>
+                  </td>
+                  <td>보트</td>
+                  <td><%=x.counter%></td>
+                  <td></td>
+                </tr>
+              <% end%>
+            <%end%>
+        </tbody>
+        </table>
+<!-- 여기까지가 좁은 화면에서 보이는 표 -->
+
+
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr class="even">
+                <td>분야</td>
+                <td>제목</td>
+                <td>직장명</td>
+                <td>지역</td>
+                <td>날짜</td>
+                <td>조회</td>
+              </tr>
+            </thead>
+            <tbody>
+              <% pointer=0%>
+              <% @posts.each do |x| %>
+              <% pointer = pointer + 1%>
+                  <% if pointer.odd? == true %>
+
+                    <tr class="odd">
+                      <td>
+                        <% if x.category ==0 %>
+                          공지
+                        <% else %> 
+
+                          <%=x.category%>
+                        <% end %>
+                        
+                        
+                      </td>
+                      <td>
+                      <% if x.delete_flag == true %> 
+                        <a  style=" color:#cacfd2;">삭제된 글입니다[<%=x.title[0..10]%>] </a>
+                      <% else%>                  
+                        <a href="/job/detail?page=<%=@page_number%>&id=<%=x.id%>"><%=x.title%>
+                          <%unless x.comments.count == 0%>
+                            [<%=x.comments.count%>]
+                          <%end%>
+                        </a>
+                      <%end%>
+                      </td>
+                      <td>
+                          <%=x.user.name%>
+                      </td>
+                      <td>보트</td>
+                      <td><%=x.counter%></td>
+                      <td><%=x.created_at.to_s[2..9]%></td>
+                    </tr>
+                  <%else %> 
+                    <tr class="even">
+                      <td>
+                        <% if x.category ==0 %>
+                          공지
+                        <% else %> 
+
+                          <%=x.category%>
+                        <% end %>
+                      </td>
+                      <td>
+                      <% if x.delete_flag == true %> 
+                        <a  style=" color:#cacfd2;">삭제된 글입니다[<%=x.title[0..10]%>] </a>
+                      <% else%>                  
+                        <a href="/job/detail?page=<%=@page_number%>&id=<%=x.id%>"><%=x.title%>
+                        <%unless x.comments.count == 0%>
+                          [<%=x.comments.count%>]
+                        <%end%>
+                        </a>
+                      <%end%>
+                      </td>
+                      <td>
+                          <%=x.user.name%>
+                      </td>
+                      <td>보트</td>
+                      <td><%=x.counter%></td>
+                      <td><%=x.created_at.to_s[2..9]%></td>
+                    </tr>
+                  <% end%>
+                <%end%>
+            </tbody>
+          </table>
+      <div class = "center">
+        <div class="control-group small">
+          <div class="input-append">
+            <input class="span2" id="appendedInputButton-04" type="text" placeholder="Search">
+          </div>
+            <button class="btn btn-small" type="button" onclick="alert('준비중입니다');"><span class="fui-search">검색</span></button>
+            <br>
+            <button class="btn btn-small" type="button" onclick="location.href='/job/write'"><span class="fui-search">글쓰기</span></button>
+            <button class="btn btn-small" type="button" onclick="location.href='/user/logout'"><span class="fui-search">로그아웃</span></button>
+        </div> 
+        <ul class="pagination-plain">
+        <% if @previous == 0 %>
+          <li class="previous"><a href="#fake_link">&larr; Newer</a></li>
+        <% else%>
+          <li class="previous"><a href="http://snuev.com:3113/job/index?page=<%=(@previous-1)*10 +1 %>">&larr; Newer</a></li>
+        <% end%>
+          <% (@previous * 10 + 1).upto(@previous*10 + 10) do |x|%>
+            <% if x == @page_number %>
+              <li class="active"><a href="http://snuev.com:3113/job/index?page=<%=x%>"><%=@page_number%></a></li>
+            <%else%>
+              <li><a href="http://snuev.com:3113/job/index?page=<%=x%>"><%=x%></a></li>
+            <%end%>
+          <%end%>
+          <li class="next"><a href="http://snuev.com:3113/job/index?page=<%=(@previous+1)*10+  1%>">Previous &rarr;</a></li>
+        </ul>
+      </div>
+        </div>
+      </div>
+    </div>
+

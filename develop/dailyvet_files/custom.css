@@ -1,0 +1,5 @@
+/* -- This is the place to add your own style modifications without touching the original styles -- */
+
+/* ---------[ Search Box in Top Navigation ]--------- */
+
+#topnav ul li.search { float:right; }

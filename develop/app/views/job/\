@@ -1,0 +1,211 @@
+<style>
+input{
+border:0px !important;
+margin:0px !important;
+}
+div.wrap{
+border : 1px solid #CCC;
+}
+div.line{
+width:100%;
+border-bottom:1px solid #CCC;
+}
+div.left{
+background-color : #336699;
+color:#f5f5f5;
+font-weight:bold;
+font-size:15px;
+line-height:60px;
+padding:0 0 0 20px;
+float:left;
+width:20%;
+min-width:80px;
+border-bottom:1px solid #CCC;
+height:60px;
+}
+div.right{
+padding:0 0 0 10px;
+line-height:60px;
+float:left;
+width:75%;
+border-bottom:1px solid #CCC;
+height:60px;
+}
+div.clear{
+clear:both;
+}
+</style>
+    <div class="container">
+      <!-- 배너자리시작! -->
+      <center>
+      <div  style="width:646px; height:90px; border: 3px solid;">
+        배너자리
+      </div>
+      </center>
+      <!-- 배너자리끝! -->
+        <center>
+        <div style="height:14px;">
+      글쓰기  반려동물임상 | 산업동물임상 | 공무원 | 일반업체 | 기타 구직글보기
+      <br>
+      <br>
+      <br>
+      </div>
+      </center>
+      <div class="demo-row">
+        <div class="demo-content-wide">
+        <div class = "wrap">
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <a>분야</a>
+          </div>
+          <div class ="right">
+            <input class = "hihihi" type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            담당업무
+
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            근무시간
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            직장명 
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            근무지주소
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            모집인원
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            급여
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            응시자격
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            경력사항
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            우대조건
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            전화번호
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            핸드폰 번호
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            채용방법
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            마감일
+          </div>
+          <div class ="right">
+          <input type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            세부사항
+          </div>
+          <div class ="right">
+          <textarea type="text" style="width:90%;"> </textarea>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+

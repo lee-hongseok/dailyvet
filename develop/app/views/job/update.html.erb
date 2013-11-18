@@ -1,0 +1,282 @@
+<style>
+textarea{
+border:0px !important;
+margin:0px !important;
+height:90% !important;
+}
+
+input{
+border:0px !important;
+margin:0px !important;
+}
+div.wrap{
+border : 1px solid #CCC;
+}
+div.line{
+width:100%;
+border-bottom:1px solid #D6DCE9;
+}
+div.left{
+background-color : #F5F7FA;
+border-right:1px solid #D6DCE9;
+color:#5D6D9A;
+font-weight:bold;
+font-size:15px;
+line-height:60px;
+padding:0 0 0 20px;
+float:left;
+width:20%;
+min-width:80px;
+border-bottom:1px solid #CCC;
+height:60px;
+}
+div.right{
+padding:0 0 0 10px;
+line-height:60px;
+float:left;
+width:75%;
+border-bottom:1px solid #CCC;
+height:60px;
+}
+div.detailleft{
+background-color : #F5F7FA;
+border-right:1px solid #D6DCE9;
+color:#5D6D9A;
+font-weight:bold;
+font-size:15px;
+line-height:60px;
+padding:0 0 0 20px;
+float:left;
+width:20%;
+min-width:80px;
+border-bottom:1px solid #CCC;
+height:200px;
+}
+div.detailright{
+padding:0 0 0 10px;
+line-height:60px;
+float:left;
+width:75%;
+border-bottom:1px solid #CCC;
+height:200px;
+
+}
+div.clear{
+clear:both;
+}
+</style>
+    <div class="container">
+      <!-- 배너자리시작! -->
+      <center>
+      <div  style="max-width:auto; height:90px; border: 3px solid;">
+        배너자리
+      </div>
+      </center>
+      <!-- 배너자리끝! -->
+        <center>
+      <br>
+      <br>
+      <br>
+        <div style="height:14px;">
+      글쓰기  반려동물임상 | 산업동물임상 | 공무원 | 일반업체 | 기타 구직글보기
+      </div>
+      </center>
+      <br>
+      <br>
+      <br>
+      <div class="demo-row">
+        <div class="demo-content-wide">
+        <form action ="/job/update_process" method="POST">
+        <div class = "wrap">
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            분야
+          </div>
+          <div class ="right">
+<select type="text" name="category" id="myDropdown" style="border:0px;"> 
+<% temp = Array.new%>
+<% temp = ["반려동물임상", "산업동물임상", "공무원", "일반업체", "기타"]%>
+<% temp.each do |x| %>
+  <% if @post.category =="공지"%>
+  <option selected="selected" val="<%=@post.category%>"><%=@post.category%></option>
+    <% break%>
+  <% elsif x == @post.category%>
+  <option selected="selected" val="<%=x%>"><%=x%></option>
+  <% else%>
+  <option val="<%=x%>"><%=x%></option>
+  <% end%>
+
+<% end%>
+</select>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            제목 
+
+          </div>
+          <div class ="right">
+          <input name="title" value="<%=@post.title%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input type="hidden"  name="id" value="<%=@post.id%>">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            담당업무
+
+          </div>
+          <div class ="right">
+          <input name="each" value="<%=@post.each%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            근무시간
+          </div>
+          <div class ="right">
+          <input name="hour" type="text" value="<%=@post.hour%>" placeholder="내용을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            직장명 
+          </div>
+          <div class ="right">
+          <input name="name" value="<%=@post.name%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            근무지주소
+          </div>
+          <div class ="right">
+          <input name="address" value="<%=@post.address%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            모집인원
+          </div>
+          <div class ="right">
+          <input  name="to" value="<%=@post.to%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            급여
+          </div>
+          <div class ="right">
+          <input name="pay" value="<%=@post.pay%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            응시자격
+          </div>
+          <div class ="right">
+          <input name="qualification" value="<%=@post.qualification%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            경력사항
+          </div>
+          <div class ="right">
+          <input name="experience" value="<%=@post.experience%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            우대조건
+          </div>
+          <div class ="right">
+          <input name="favorite" value="<%=@post.favorite%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            전화번호
+          </div>
+          <div class ="right">
+          <input name="tel" value="<%=@post.tel%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            핸드폰 번호
+          </div>
+          <div class ="right">
+          <input name="hp" value="<%=@post.hp%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            채용방법
+          </div>
+          <div class ="right">
+          <input name="method" value="<%=@post.method%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            마감일
+          </div>
+          <div class ="right">
+          <input  name="dead_line" value="<%=@post.dead_line%>" placeholder="내용을 입력해주십시오" type="text" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="detailleft" >
+            세부사항
+          </div>
+          <div class ="detailright">
+          <textarea name="detail" type="text" style="width:90%;"><%=@post.detail%> </textarea>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+        </div>
+            <br>
+            <div style="float:left;">  
+            <button class="btn btn-small" type="button" onclick="location.href='/user/logout'"><span class="fui-search"> 목록</span></button>
+            </div>
+            <div style="float:right;">
+            <input class="btn btn-small" type="submit" value="작성완료">
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+
+

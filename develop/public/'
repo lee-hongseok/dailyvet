@@ -1,0 +1,122 @@
+    <div class="container">
+      <div class="demo-row">
+        <div class="demo-content-wide">
+
+
+
+        <table class="rwd-table">
+        <tbody>
+          <tr height="10px" class="even">
+                <td width="10%">구분</td>
+                <td width="75%">제목</td>
+                <td width="25%">추천</td>
+                <td width="10%">조회</td>
+          </tr>
+          <% pointer=0%>
+          <% @posts.each do |x| %>
+          <% pointer = pointer + 1%>
+              <% if pointer.odd? == true %>
+
+                <tr class="odd">
+                  <td><%=x.category%></td>
+                  <td><a href="detail?page=<%=@page_number%>&id=<%=x.id%>"><%=x.title%>
+                      <%unless x.comments.count == 0%>
+                      [<%=x.comments.count%>]
+                      <%end%>
+                  </a></td>
+                  <td><%=x.user_id%></td>
+                  <td><%=x.recommend%></td>
+                  <td><%=x.counter%></td>
+                </tr>
+                <!--
+                <tr class="odd">
+                  <td><%=x.category%></td>
+                  <td><%=x.title%></td>
+                  <td><%=x.user_id%></td>
+                  <td><%=x.recommend%></td>
+                  <td><%=x.counter%></td>
+                </tr>
+                --!>
+                
+              <%else %> 
+                <tr class="even">
+                  <td><%=x.category%></td>
+                  <td><a href="detail?page=<%=@page_number%>&id=<%=x.id%>"><%=x.title%>
+                      <%unless x.comments.count == 0%>
+                      [<%=x.comments.count%>]
+                      <%end%>
+                  </a></td>
+                  <td><%=x.user_id%></td>
+                  <td><%=x.recommend%></td>
+                  <td><%=x.counter%></td>
+                </tr>
+              <% end%>
+            <%end%>
+        </tbody>
+        </table>
+<!-- 여기까지가 좁은 화면에서 보이는 표 -->
+
+
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr class="even">
+                <td>구분</td>
+                <td>제목</td>
+                <td>글쓴이</td>
+                <td>추천</td>
+                <td>조회</td>
+                <td>날짜</td>
+              </tr>
+            </thead>
+            <tbody>
+              <% pointer=0%>
+              <% @posts.each do |x| %>
+              <% pointer = pointer + 1%>
+                  <% if pointer.odd? == true %>
+
+                    <tr class="odd">
+                      <td><%=x.category%></td>
+                      <td><a href="detail?page=<%=@page_number%>&id=<%=x.id%>"><%=x.title%>
+                      <%unless x.comments.count == 0%>
+                      [<%=x.comments.count%>]
+                      <%end%>
+                      </a></td>
+                      <td><%=x.user_id%></td>
+                      <td><%=x.recommend%></td>
+                      <td><%=x.counter%></td>
+                      <td><%=x.created_at%></td>
+                    </tr>
+                  <%else %> 
+                    <tr class="even">
+                      <td><%=x.category%></td>
+                      <td><a href="detail?page=<%=@page_number%>&id=<%=x.id%>"><%=x.title%>
+                      <%unless x.comments.count == 0%>
+                      [<%=x.comments.count%>]
+                      <%end%>
+                      </a></td>
+                      <td><%=x.user_id%></td>
+                      <td><%=x.recommend%></td>
+                      <td><%=x.counter%></td>
+                      <td><%=x.created_at%></td>
+                    </tr>
+                  <% end%>
+                <%end%>
+            </tbody>
+          </table>
+      <center>
+            <ul class="pagination-plain">
+              <li class="previous"><a href="http://snuev.com:3113/community/index?page=<%=(@previous-1)*10 +1 %>">&larr; Previous</a></li>
+              <% @previous.upto(@previous + 9) do |x|%>
+                <% if x == @page_number %>
+                  <li class="active"><a href="#fakelink"><%=@page_number%></a></li>
+                <%else%>
+                  <li><a href="#fakelink"><%=x%></a></li>
+                <%end%>
+              <%end%>
+              <li class="next"><a href="http://snuev.com:3113/community/index?previous=<%=(@previous+1)*10+  1%>">Newer &rarr;</a></li>
+            </ul>
+      </center>
+        </div>
+      </div>
+    </div>
+
