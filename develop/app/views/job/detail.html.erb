@@ -1,4 +1,9 @@
 <style>
+  b.word{
+    margin:5px;
+    font-size:10pt;
+
+}
 textarea.detail{
 border:0px !important;
 margin:0px !important;
@@ -10,53 +15,51 @@ border:0px !important;
 margin:0px !important;
 }
 div.wrap{
-border : 1px solid #CCC;
+border-left : 1px solid #CCC;
+border-right : 1px solid #CCC;
+border-top : 1px solid #CCC;
 }
 div.line{
 width:100%;
-border-bottom:1px solid #D6DCE9;
 }
 div.left{
 background-color : #F5F7FA;
-border-right:1px solid #D6DCE9;
+border-right:1px solid #CCC;
 color:#5D6D9A;
 font-weight:bold;
 font-size:15px;
 line-height:60px;
-padding:0 0 0 20px;
 float:left;
-width:20%;
+width:35%;
 min-width:80px;
 border-bottom:1px solid #CCC;
 height:60px;
 }
 div.right{
-padding:0 0 0 10px;
 line-height:60px;
-float:left;
-width:75%;
+float:right;
+width:64.4%;
 border-bottom:1px solid #CCC;
 height:60px;
 }
 div.detailleft{
 background-color : #F5F7FA;
-border-right:1px solid #D6DCE9;
+border-right:1px solid #CCC;
 color:#5D6D9A;
 font-weight:bold;
 font-size:15px;
 line-height:60px;
-padding:0 0 0 20px;
 float:left;
-width:20%;
+width:35%;
 min-width:80px;
 border-bottom:1px solid #CCC;
+min-width:80px;
 height:200px;
 }
 div.detailright{
-padding:0 0 0 10px;
 line-height:60px;
-float:left;
-width:75%;
+float:right;
+width:64.4%;
 border-bottom:1px solid #CCC;
 height:200px;
 
@@ -78,7 +81,6 @@ clear:both;
       <br>
       <br>
         <div style="height:14px;">
-      글쓰기  반려동물임상 | 산업동물임상 | 공무원 | 일반업체 | 기타 구직글보기
       </div>
       </center>
       <br>
@@ -88,7 +90,9 @@ clear:both;
         <div class="demo-content-wide">
         <div class = "wrap">
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
-            분야
+            <b class ="word">
+              분야
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.category%>
@@ -98,7 +102,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             제목 
+            </b>
 
           </div>
           <div class ="right">
@@ -110,7 +116,9 @@ clear:both;
 
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             담당업무
+            </b>
 
           </div>
           <div class ="right">
@@ -121,7 +129,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             근무시간
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.hour%>
@@ -131,7 +141,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             직장명 
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.name%>
@@ -141,7 +153,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             근무지주소
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.address%>
@@ -151,7 +165,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             모집인원
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.to%>
@@ -161,7 +177,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             급여
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.pay%>
@@ -171,7 +189,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             응시자격
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.qualification%>
@@ -181,7 +201,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             경력사항
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.experience%>
@@ -191,7 +213,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             우대조건
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.favorite%>
@@ -201,7 +225,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             전화번호
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.tel%>
@@ -211,7 +237,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             핸드폰 번호
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.hp%>
@@ -221,7 +249,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             채용방법
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.method%>
@@ -232,7 +262,9 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class ="word">
             마감일
+            </b>
           </div>
           <div class ="right">
             <%=@clicked_post.dead_line%>
@@ -242,10 +274,12 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="detailleft" >
-            세부사항
+            <b class ="word">
+              세부사항
+            </b>
           </div>
           <div class ="detailright">
-            <%=@clicked_post.detail%>
+            <pre><%=@clicked_post.detail%></pre>
           </div>
           </div>
           <div class = "clear">
@@ -288,7 +322,9 @@ clear:both;
           <div class = "clear">
           </div>
           <div class = "comment_body">
+            <pre>
             <%= comment.content %>
+            </pre>
           </div>
         </div>
           <% order += 1%>

@@ -1,65 +1,340 @@
+<style>
+  b.word{
+    margin:5px;
+    font-size:10pt;
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="sign_up.js"></script>
-<form action ="/user/sign_up_process" method="POST">
- 이름 : <input type="text" name = "name">
- <br>
- 아이디 : <input type="text" name = "user_id">
- <br>
- 필명 : <input type="text" name = "nickname">
- <br>
- PW : <input type="password" name = "password" id = 'password'>
-<br>
- PW_확인 <input type="password" name= "password_confirm" id = 'password_confirm'>
-<br>
-<div id = "password_check">
-</div>
-<br>
- E-mail : <input type="text" name = "email" id = "email">
-<br>
-<div id = 'email_check'>
-</div>
-<br>
- 휴대폰 번호 
-<input type="text" name="phone_number"> 
-<br>
- 주소 
-<input type="text" name="address"> 
-<br>
- 필드구분 
-<select type="text" name="field" id="field"> 
-  <option val=2>반려동물수의사</option>
-  <option val=3>산업동물수의사</option>
-  <option val=4>야생동물수의사</option>
-  <option val=5>수의직공무원</option>
-  <option val=6>수의관련업체</option>
-  <option val=7>수의사회</option>
-  <option val=8>수의과대학 교직원</option>
-  <option val=9>수의장교</option>
-  <option val=10>공중방역수의사</option>
-  <option val=11>기타</option>
-  <option val=1>수의대생</option>
-  <option val=12>비수의사회원</option>
-</select>
-<br>
- 수의사면허번호 <input class = "vet" type="text" name="vet_number">
+}
+textarea{
+border:0px !important;
+margin:0px !important;
+height:90% !important;
+}
 
-<br>
- 직장명 <input class = "vet" type="text" name="work_name"> 
-<br>
- 직장연락처 <input class = "vet" type="text" name="work_number"> 
-<br>
- 메일수신설정 <input type="checkbox" name="mail_receive"> 
-<br>
- sms수신설정 <input type="checkbox" name="sms_receive"> 
-<br>
- 학번 <input class="student" type="text" name="student_number"> 
-<br>
- 학교명 <input class="student" type="text" name="university"> 
-<br>
-<input type="submit" value = "sign up!">
-</form>
-<script>
+input{
+border:0px !important;
+margin:0px !important;
+}
+div.wrap{
+border-left : 1px solid #CCC;
+border-right : 1px solid #CCC;
+border-top : 1px solid #CCC;
+}
+div.line{
+width:100%;
+}
+div.left{
+background-color : #F5F7FA;
+border-right:1px solid #CCC;
+color:#5D6D9A;
+font-weight:bold;
+font-size:15px;
+line-height:60px;
+float:left;
+width:35%;
+min-width:80px;
+border-bottom:1px solid #CCC;
+height:60px;
+text-align:center;
+}
+div.right{
+line-height:60px;
+float:right;
+width:64.4%;
+border-bottom:1px solid #CCC;
+height:60px;
+}
+div.detailleft{
+background-color : #F5F7FA;
+border-right:1px solid #D6DCE9;
+color:#5D6D9A;
+font-weight:bold;
+font-size:15px;
+line-height:60px;
+padding:0 0 0 20px;
+float:left;
+width:20%;
+min-width:80px;
+border-bottom:1px solid #CCC;
+height:200px;
+}
+div.detailright{
+padding:0 0 0 10px;
+line-height:60px;
+float:left;
+width:75%;
+border-bottom:1px solid #CCC;
+height:200px;
+
+}
+div.clear{
+clear:both;
+}
+</style>
+    <div class="container">
+      <!-- 배너자리시작! -->
+      <center>
+      <div  style="max-width:auto; height:90px; border: 3px solid;">
+        배너자리
+      </div>
+      </center>
+      <!-- 배너자리끝! -->
+        <center>
+      <br>
+      <br>
+      <br>
+        <div style="height:14px;">
+      글쓰기  반려동물임상 | 산업동물임상 | 공무원 | 일반업체 | 기타 구직글보기
+      </div>
+      </center>
+      <br>
+      <br>
+      <br>
+      <div class="demo-row">
+        <div class="demo-content-wide">
+        <form name="form" action ="/user/sign_up_process" method="POST">
+        <div class = "wrap">
+
+          <div class = "line"> <!-- 줄바꾸기 --> 
+            <div class ="left">
+              <b class = "word">
+                이름 
+              </b>
+            </div>
+            <div class ="right">
+            <input name="name" type="text" placeholder="이름을 입력해주십시오" style="width:90%;">
+            </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+            아이디
+              </b>
+
+          </div>
+          <div class ="right">
+          <input name="user_id" type="text" placeholder="아이디를 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+                닉네임
+              </b>
+          </div>
+          <div class ="right">
+          <input name="nickname" type="text" placeholder="닉네임을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+           비밀번호 
+              </b>
+          </div>
+          <div class ="right">
+            <input id="password" type="password"  name="password" placeholder="비밀번호를 입력해주십시오" style="width:90%;">
+
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+           비밀번호 확인 
+              </b>
+          </div>
+          <div class ="right">
+          <input name="password_confirm" id="password_confirm" type="password" placeholder="비밀번호를 한번 더 입력해주십시오" style="width:90%;">
+            <div id = "password_check">
+            </div>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+            E-mail
+              </b>
+          </div>
+          <div class ="right">
+            <input  name="email" id="email" type="email" placeholder="메일주소를 입력해주십시오" style="width:90%;">
+            <div id="email_check">
+            </div>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+            휴대폰 번호 
+              </b>
+          </div>
+          <div class ="right">
+          <input name="phone_number" type="tel" placeholder="휴대폰 번호를 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left" style="height:120px;">
+              <b class = "word">
+            주소 
+              </b>
+          </div>
+          <div class ="right"style="height:120px;">
+
+            <b class="word">시/도: </b>
+                   <select name='city' onchange="change(this.selectedIndex);"  class=input style="width:120px; font-size:9pt; margin:0px;" >
+                       <option value='1'>선택해주십시오</option>
+                       <option value='서울'>서울특별시</option>
+                       <option value='부산'>부산광역시</option>
+                       <option value='대구'>대구광역시</option>
+                       <option value='인천'>인천광역시</option>
+                       <option value='광주'>광주광역시</option>
+                       <option value='대전'>대전광역시</option>
+                       <option value='울산'>울산광역시</option>
+                       <option value='경기'>경기도</option>
+                       <option value='강원'>강원도</option>
+                       <option value='충북'>충청북도</option>
+                       <option value='충남'>충청남도</option>
+                       <option value='전북'>전라북도</option>
+                       <option value='전남'>전라남도</option>
+                       <option value='경북'>경상북도</option>
+                       <option value='경남'>경상남도</option>
+                       <option value='제주'>제주도</option>
+                     </select>                                                  
+                     <br>
+                     <b class = "word">구/군: </b>
+                    <select name='county'  class=select style="width:120px; font-size:9pt; margin:0px;">
+                       <option value=''>선택해주십시오</option>
+                    </select>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+            세부 주소  
+              </b>
+          </div>
+          <div class ="right">
+          <input name="address_detail" type="tel" placeholder="주소를 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+              종사분야  
+              </b>
+          </div>
+          <div class ="right">
+            <select type="text" name="field"  style="border:0px; width:140px; font-size:9pt;"> 
+              <option val=1>선택해주십시오</option>
+              <option val=2>반려동물수의사</option>
+              <option val=3>산업동물수의사</option>
+              <option val=4>야생동물수의사</option>
+              <option val=5>수의직공무원</option>
+              <option val=6>수의관련업체</option>
+              <option val=7>수의사회</option>
+              <option val=8>수의과대학 교직원</option>
+              <option val=9>수의장교</option>
+              <option val=10>공중방역수의사</option>
+              <option val=11>기타</option>
+              <option val=1>수의대생</option>
+              <option val=12>비수의사회원</option>
+            </select>
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+            수의사면허번호
+              </b>
+          </div>
+          <div class ="right">
+          <input name="vet_number" type="tel" placeholder="면허번호를 입력하여 주십시오" style="width:170px; font-size:9pt;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+           직장명 
+              </b>
+          </div>
+          <div class ="right">
+          <input name="work_name" type="text" placeholder="직장명을 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+            직장연락처 
+              </b>
+          </div>
+          <div class ="right">
+          <input name="work_number" type="tel" placeholder="직장 연락처를 입력해주십시오" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+             메일 수신설정
+              </b>
+          </div>
+          <div class ="right">
+          <input name="mail_receive" type="checkbox" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+              <b class = "word">
+             문자 수신설정
+              </b>
+          </div>
+          <div class ="right">
+          <input name="sms_receive" type="checkbox" style="width:90%;">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+        </div>
+            <br>
+            <div style="float:left;">  
+            <button class="btn btn-small" type="button" onclick="location.href='/user/logout'"><span class="fui-search"> 목록</span></button>
+            </div>
+            <div style="float:right;">
+            <input class="btn btn-small" type="submit" value="작성완료">
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+
+
+<script type="text/javascript">
+
 $('#email').keyup(function()
     {
     var email_check = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -100,5 +375,39 @@ $('#password_confirm').keyup(function()
    });
   }).keyup();
 
-</script>
 
+
+// 여기는 셀렉트를 빈칸으로 못하게 
+  $("#myDropdown").prop("selectedIndex", -1);
+<!--
+     var cnt = new Array();
+     cnt[0] = new Array('전체');
+     cnt[1] = new Array('전체','강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구','서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구');
+     cnt[2] = new Array('전체','강서구','금정구','남구','동구','동래구','부산진구','북구','사상구','사하구','서구','수영구','연제구','영도구','중구','해운대구','기장군');
+     cnt[3] = new Array('전체','남구','달서구','동구','북구','서구','수성구','중구','달성군');
+     cnt[4] = new Array('전체','계양구','남구','남동구','동구','부평구','서구','연수구','중구','강화군','옹진군');
+     cnt[5] = new Array('전체','광산구','남구','동구','북구','서구');
+     cnt[6] = new Array('전체','대덕구','동구','서구','유성구','중구');
+     cnt[7] = new Array('전체','남구','동구','북구','중구','울주군');
+     cnt[8] = new Array('전체','고양시','과천시','광명시','구리시','군포시','남양주시','동두천시','부천시','성남시','수원시','시흥시','안산시','안양시','오산시','의왕시','의정부시','평택시','하남시','가평군','광주시','김포시','안성시','양주군','양평군','여주군','연천군','용인시','이천군','파주시','포천시','화성시');
+     cnt[9] = new Array('전체','강릉시','동해시','삼척시','속초시','원주시','춘천시','태백시','고성군','양구군','양양군','영월군','인제군','정선군','철원군','평창군','홍천군','화천군','황성군');
+     cnt[10] = new Array('전체','제천시','청주시','충주시','괴산군','단양군','보은군','영동군','옥천군','음성군','진천군','청원군');
+     cnt[11] = new Array('전체','공주시','보령시','서산시','아산시','천안시','금산군','논산군','당진군','부여군','서천군','연기군','예산군','청양군','태안군','홍성군');
+     cnt[12] = new Array('전체','군산시','김제시','남원시','익산시','전주시','정읍시','고창군','무주군','부안군','순창군','완주군','임실군','장수군','진안군');
+     cnt[13] = new Array('전체','광양시','나주시','목포시','순천시','여수시','여천시','강진군','고흥군','곡성군','구례군','담양군','무안군','보성군','신안군','여천군','영광군','영암군','완도군','장성군','장흥군','진도군','함평군','해남군','화순군');
+     cnt[14] = new Array('전체','경산시','경주시','구미시','김천시','문겅시','상주시','안동시','영주시','영천시','포항시','고령군','군위군','봉화군','성주군','영덕군','영양군','예천군','울릉군','울진군','의성군','청도군','청송군','칠곡군');
+     cnt[15] = new Array('전체','거제시','김해시','마산시','밀양시','사천시','울산시','진주시','진해시','창원시','통영시','거창군','고성군','남해군','산청군','양산시','의령군','창녕군','하동군','함안군','함양군','합천군');
+     cnt[16] = new Array('전체','서귀포시','제주시','남제주군','북제주군');
+     function change(add) {
+     sel=document.form.county
+       
+       for (i=sel.length-1; i>=0; i--){
+         sel.options[i] = null
+         }
+       
+       for (i=0; i < cnt[add].length;i++){                     
+                         sel.options[i] = new Option(cnt[add][i], cnt[add][i]);
+         }         
+     }
+//-->
+</script>

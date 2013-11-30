@@ -1,25 +1,23 @@
     <div class="container">
-      <!-- 배너자리시작! -->
       <center>
-      <div  style="width:646px; height:90px; border: 3px solid;">
-        배너자리
+        <br>
+        <br>
+        <div style="height:auto; font-size:15px;">
+          <pre><button onclick="javascript :location.href='/job/all' "  class="btn btn-small btn-primary" >전체</button> | <button onclick="javascript :location.href='/job/companion' "  class="btn btn-small btn-info" >반려동물임상</button> | <button onclick="javascript :location.href='/job/domestic' "  class="btn btn-small btn-inverse" >산업동물임상</button> | <button onclick="javascript :location.href='/job/public' "  class="btn btn-small btn-success"> 공무원</button> | <button onclick="javascript :location.href='/job/general' "  class="btn btn-small btn-warning" >일반업체</button> | <button onclick="javascript :location.href='/job/etc' "  class="btn btn-small " >기타</button></pre>
       </div>
       </center>
-      <!-- 배너자리끝! -->
-        <center>
-        <div style="height:14px;">
-      글쓰기  반려동물임상 | 산업동물임상 | 공무원 | 일반업체 | 기타 구직글보기
-      </div>
-      </center>
+        <br>
+        <br>
+        <br>
       <div class="demo-row">
         <div class="demo-content-wide">
         <table class="rwd-table">
         <tbody>
           <tr height="10px" class="even">
-                <td width="10%">구분</td>
+                <td width="10%">분야</td>
                 <td width="70%">제목</td>
-                <td width="10%">추천</td>
-                <td width="10%">조회</td>
+                <td width="10%">지역</td>
+                <td width="10%">날짜</td>
           </tr>
               <%@notice.each do |x|%>
                   <% if x.notice_flag == true %> 
@@ -33,7 +31,7 @@
                   </a>
                   </td>
                   <td></td>
-                  <td><%=x.counter%></td>
+                  <td></td>
                   <td></td>
                 </tr>
                   <% end%>
@@ -62,8 +60,8 @@
                   </a>
                   <% end%> 
                   </td>
-                  <td>보트</td>
-                  <td><%=x.counter%></td>
+                  <td><%=x.city + " " +x.county%></td>
+                  <td><%=x.created_at[0..10]%></td>
                   <td></td>
                 </tr>
                 <!--
@@ -97,7 +95,7 @@
                   </a>
                   <% end%>
                   </td>
-                  <td>보트</td>
+                  <td>notyet</td>
                   <td><%=x.counter%></td>
                   <td></td>
                 </tr>
@@ -148,9 +146,9 @@
                       <%end%>
                       </td>
                       <td>
-                          <%=x.user.name%>
+                          <%=x.name%>
                       </td>
-                      <td>보트</td>
+                      <td><%=x.address%></td>
                       <td><%=x.counter%></td>
                       <td><%=x.created_at.to_s[2..9]%></td>
                     </tr>
@@ -200,16 +198,16 @@
         <% if @previous == 0 %>
           <li class="previous"><a href="#fake_link">&larr; Newer</a></li>
         <% else%>
-          <li class="previous"><a href="http://snuev.com:3113/job/index?page=<%=(@previous-1)*10 +1 %>">&larr; Newer</a></li>
+          <li class="previous"><a href="http://aws.hongsworld.com/job/<%=@action_name%>?page=<%=(@previous-1)*10 +1 %>">&larr; Newer</a></li>
         <% end%>
           <% (@previous * 10 + 1).upto(@previous*10 + 10) do |x|%>
             <% if x == @page_number %>
-              <li class="active"><a href="http://snuev.com:3113/job/index?page=<%=x%>"><%=@page_number%></a></li>
+              <li class="active"><a href="http://aws.hongsworld.com/job/<%=@action_name%>?page=<%=x%>"><%=@page_number%></a></li>
             <%else%>
-              <li><a href="http://snuev.com:3113/job/index?page=<%=x%>"><%=x%></a></li>
+              <li><a href="http://aws.hongsworld.com/job/<%=@action_name%>?page=<%=x%>"><%=x%></a></li>
             <%end%>
           <%end%>
-          <li class="next"><a href="http://snuev.com:3113/job/index?page=<%=(@previous+1)*10+  1%>">Previous &rarr;</a></li>
+          <li class="next"><a href="http://aws.hongsworld.com/job/<%=@action_name%>?page=<%=(@previous+1)*10+  1%>">Previous &rarr;</a></li>
         </ul>
       </div>
         </div>

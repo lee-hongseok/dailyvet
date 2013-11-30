@@ -160,7 +160,7 @@ padding: 0 15px 0 0;
                         <% if @clicked_post.anomynous_flag == true %>
                           필명숨김 
                         <% else %>
-                          <%=@clicked_post.user.name%>
+                          <%=@clicked_post.user.nickname%>
                         <% end %>
             </a>
           </div>
@@ -179,20 +179,24 @@ padding: 0 15px 0 0;
           </div>
         </div>
       </div>
-          <div class = "clear">
-          </div>
-      <div class ="rd_body" >
-      <p><%= @clicked_post.content %></p>
+      <div class = "clear">
       </div>
+      <div class ="rd_body" >
+        <pre>
+          <%= @clicked_post.content %>
+        </pre>
+      </div>
+      <%#<!--수정과 삭제 기능을 향한 링크-->%>
       <% if @clicked_post.user_id == session[:id] or session[:user] =="DAILYVETadminDAILYVET"%>
       <div class ="rd_footer">
-      <p><!--수정과 삭제 기능을 향한 링크-->
+      <p>
         <a href="/community/update/<%=@clicked_post.id%>">[수정]</a>
           &nbsp;
         <a href="/community/delete_post/<%=@clicked_post.id%>">[삭제]</a>
       </p>
       </div>
-      <% end %>
+    <% end %>
+    <%#<!-- 수정과 삭제 기능을 위한 링크 끝-->%>
       <div class = "up_down">
         <div class = "left" style ="width: 45%; text-align:right; padding:0 5% 0 0;">
           <a id="up" class="btn btn-info btn-wide"> 추천  <br> <span id="now_up" style="font-weight: bold; color:#336699; letter-spacing: 2px;"><%=@clicked_post.vote_up%></span></a>
@@ -217,7 +221,7 @@ padding: 0 15px 0 0;
            <% if comment.anomynous_flag == true%>
            필명숨김
            <% else %>
-           <%=comment.user.name%> 
+           <%=comment.user.nickname%> 
            <% end %>
            </span> <span>  <%=comment.created_at.to_s[5..15]%></span></p>
           </div>
@@ -228,7 +232,9 @@ padding: 0 15px 0 0;
           <div class = "clear">
           </div>
           <div class = "comment_body">
+            <pre>
             <%= comment.content %>
+            </pre>
           </div>
         </div>
           <% order += 1%>
@@ -264,7 +270,7 @@ padding: 0 15px 0 0;
 
 <script>
 
-var host_url = "http://snuev.com:3113"
+var host_url = "http://aws.hongsworld.com"
 $("#up").click(function () {
   $.ajax({
           url: host_url + "/community/vote.json",

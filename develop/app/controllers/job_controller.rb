@@ -1,7 +1,12 @@
 #encoding:utf-8
 class JobController < ApplicationController
-  layout 'job_layout'
+skip_before_filter :get_user , :only => [:index]
   def index
+    session[:bbs] = 1
+    redirect_to :action => "all"
+  end
+  def all
+    @action_name = "index"
     @page_number = params[:page].to_i
     if @previous == 0 
       @previous =1
@@ -15,8 +20,8 @@ class JobController < ApplicationController
     if @page_number == 0
       @page_number=1
     end
-    final = JobPost.last.id - (@page_number-1)*10
-    initial = final - 10
+    final = JobPost.count - (@page_number-1)*10
+    initial = final - 9
     puts final
     puts initial
     puts "hasjdfasfhldfasdhflkasasdhfkafjklsddfhasdkasdjklfhasld"
@@ -53,7 +58,7 @@ class JobController < ApplicationController
     jp.title = params[:title]
     jp.notice_flag = params[:notice_flag]
     jp.save                 
-    redirect_to :action => 'index' 
+    redirect_to :action => 'all' 
   end
 
   def detail
@@ -126,7 +131,7 @@ class JobController < ApplicationController
       post = Post.find(params[:id])
       post.delete_flag = true
       post.save
-      redirect_to :action => 'index' 
+      redirect_to :action => 'all' 
     else
       render :text => "잘못된 접근입니다"
     end
@@ -141,4 +146,136 @@ class JobController < ApplicationController
       page_number = params[:page_from_view]
       redirect_to :action => 'detail' , :id => jp_id , :page => page_number
   end
+  def companion
+    @action_name = "companion"
+
+    @page_number = params[:page].to_i
+    if @page_number < 10
+      @previous = 0
+    else
+        @previous = temp.to_s[0..-2].to_i
+    end
+    if @page_number == 0
+      @page_number=1
+    end
+    final = JobPost.where(:category => "반려동물임상").count - (@page_number-1)*10
+    initial = final - 9
+    if initial < 1
+      initial = 1
+    end
+    if final < 1 
+      @posts = JobPost.where(:id => 0).last
+    else
+      @posts = JobPost.where(:category => "반려동물임상")[initial-1 .. final-1].reverse
+    end
+    @notice = JobPost.where(:category =>0).all.reverse
+
+  end
+
+  def domestic
+    @action_name = "domestic"
+    @page_number = params[:page].to_i
+    if @page_number < 10
+      @previous = 0
+    else
+        @previous = temp.to_s[0..-2].to_i
+    end
+    if @page_number == 0
+      @page_number=1
+    end
+    final = JobPost.where(:category => "산업동물임상").count - (@page_number-1)*10
+    initial = final - 9
+    if initial < 1
+      initial = 1
+    end
+    if final < 1 
+      @posts = JobPost.where(:id => 0).last
+    else
+      @posts = JobPost.where(:category => "산업동물임상")[initial-1 .. final-1].reverse
+    end
+    @users = User.all
+    @comments = Comment.all
+    @notice = JobPost.where(:category =>0).all.reverse
+
+  end
+
+  def public
+
+    @action_name = "public"
+    @page_number = params[:page].to_i
+    if @page_number < 10
+      @previous = 0
+    else
+        @previous = temp.to_s[0..-2].to_i
+    end
+    if @page_number == 0
+      @page_number=1
+    end
+    final = JobPost.where(:category => "공무원").count - (@page_number-1)*10
+    initial = final - 9
+    if initial < 1
+      initial = 1
+    end
+    if final < 1 
+      @posts = JobPost.where(:id => 0).last
+    else
+      @posts = JobPost.where(:category => "공무원")[initial-1 .. final-1].reverse
+    end
+    @users = User.all
+    @comments = Comment.all
+    @notice = JobPost.where(:category =>0).all.reverse
+  end
+
+  def general
+    @action_name = "general"
+    @page_number = params[:page].to_i
+    if @page_number < 10
+      @previous = 0
+    else
+        @previous = temp.to_s[0..-2].to_i
+    end
+    if @page_number == 0
+      @page_number=1
+    end
+    final = JobPost.where(:category => "일반업체").count - (@page_number-1)*10
+    initial = final - 9
+    if initial < 1
+      initial = 1
+    end
+    if final < 1 
+      @posts = JobPost.where(:id => 0).last
+    else
+      @posts = JobPost.where(:category => "일반업체")[initial-1 .. final-1].reverse
+    end
+    @users = User.all
+    @comments = Comment.all
+    @notice = JobPost.where(:category =>0).all.reverse
+  end
+
+  def etc
+    @action_name = "etc"
+    @page_number = params[:page].to_i
+    if @page_number < 10
+      @previous = 0
+    else
+        @previous = temp.to_s[0..-2].to_i
+    end
+    if @page_number == 0
+      @page_number=1
+    end
+    final = JobPost.where(:category => "기타").count - (@page_number-1)*10
+    initial = final - 9
+    if initial < 1
+      initial = 1
+    end
+    if final < 1 
+      @posts = JobPost.where(:id => 0).last
+    else
+      @posts = JobPost.where(:category => "기타")[initial-1 .. final-1].reverse
+    end
+    @users = User.all
+    @comments = Comment.all
+    @notice = JobPost.where(:category =>0).all.reverse
+  end
+
 end

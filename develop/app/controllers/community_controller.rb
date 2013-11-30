@@ -1,7 +1,11 @@
 #encoding:utf-8
 class CommunityController < ApplicationController
-#skip_before_filter :get_user, :only => [:index, :logout, :login, :join, :login_process, :join_process]
+skip_before_filter :get_user , :only => [:index]
   def index
+    session[:bbs] = 0
+    redirect_to :action => 'all'
+  end
+  def all
     @page_number = params[:page].to_i
     if @previous == 0 
       @previous =1
@@ -16,7 +20,7 @@ class CommunityController < ApplicationController
       @page_number=1
     end
     final = Post.last.id - (@page_number-1)*10
-    initial = final - 10
+    initial = final - 9
     puts final
     puts initial
     puts "hasjdfasfhldfasdhflkasasdhfkafjklsddfhasdkasdjklfhasld"
@@ -29,7 +33,6 @@ class CommunityController < ApplicationController
     @comments = Comment.all
     @notice = Post.where(:category =>0).all.reverse
   end
-  
 
   def write
   end
@@ -44,7 +47,7 @@ class CommunityController < ApplicationController
     post.anomynous_flag = params[:anomynous_flag]
     post.notice_flag = params[:notice_flag]
     post.save                 
-    redirect_to :action => 'index' 
+    redirect_to :action => 'all' 
   end
 
   def detail
@@ -69,7 +72,7 @@ class CommunityController < ApplicationController
     end
     puts @page_number
     final = Post.last.id - (@page_number-1)*10
-    initial = final - 10
+    initial = final - 9
     #한페이지에는 20개씩의 글
 #@posts = Post.where(:delete_flag => false, :id => initial..final).all
     @posts = Post.where(:id => initial..final).all.reverse
@@ -91,7 +94,7 @@ class CommunityController < ApplicationController
       post.category = params[:category_from_view]
       post.save
 
-      redirect_to :action => 'index' 
+      redirect_to :action => 'all' 
     else 
       render :text => "잘못된 접근입니다"
     end
@@ -115,7 +118,7 @@ class CommunityController < ApplicationController
 
     post.delete_flag = true
     post.save
-    redirect_to :action => 'index' 
+    redirect_to :action => 'all' 
     else
       render :text => "잘못된 접근입니다"
     end

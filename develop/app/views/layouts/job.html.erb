@@ -23,7 +23,7 @@
   <div id="header">
     <div id="head-content" class="clearfix">
       <div id="logo">
-        <a href="http://www.dailyvet.co.kr" title="데일리벳"><img src="/dailyvet_job.jpg" alt="데일리벳"></a>
+        <a href="http://www.dailyvet.co.kr" title="데일리벳"><img src="/1-e13628985361741.jpg" alt="데일리벳"></a>
       </div>
     </div>
   </div>
@@ -63,50 +63,16 @@
         <li id="menu-item-8211" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8211"><a href="http://www.dailyvet.co.kr/category/polling">설문조사</a></li>
     </ul>
     </div>
-  <div>
-    <% if session[:id]==nil%>
-      <div class="dialog demo-dialog">
-        <form class="control-group" action="/user/login_process" method="POST">
-          <input  name="user_id" type="text" placeholder="Login/ID" class="flat" />
-          <input  name="password" type="password" placeholder="Password" class="flat" />
-          <button type="submit" class="btn btn-primary btn-wide">로그인</button>
-          <input type="button" class="btn btn-danger btn-wide" onclick="location.href='/user/pre_sign_up'" value="회원가입" style="width=140px">
-        </form>
-      </div> <!-- /dialog -->
-    <%else%>
-  <!--
-    <div class="demo-tooltips">
-      <p data-toggle="tooltip" title="" data-original-title="로그인 후에 이용할 수 있습니다.">
-      </p>
-      <div class="tooltip fade top in" style="top: -69px; display: block;">
-        <div class="tooltip-inner">
-        <div style="float:left; text-align: center; font-size: 12px">
-          <p style="text-align:center; font-size:12px;  line-height:37px;"> 안녕하세요 <%=session[:name]%> 님 </p>
-        <br>
-        <br>
-        </div>
-          <p style="text-align:center; font-size:12px;  line-height:37px;"> 안녕하세요 <%=session[:name]%> 님 </p>
-        </div>
+    <div>
+      <!-- 배너자리시작! 
+      <center>
+      <div  style=" max-width:860px;width:90%px; height:90px; border: 3px solid;">
+        배너자리
       </div>
-    </div>
-    --!>
-<!--
-      <div class="dialog demo-dialog">
-        <div style="float:left; text-align: center; font-size: 12px">
-          <p style="text-align:center; font-size:12px;  line-height:37px;"> 안녕하세요 <%=session[:name]%> 님 </p>
-        <br>
-        <br>
-        </div>
-        <div class = "span2" style="float:right; line-height:37px;"> 
-          <center>
-          <button class="btn btn-small btn-danger";  href="/user/logout">로그아웃</button>
-          </center>
-        </div>
-        <br>
-        <br>
-      </div>
---!>
-    <%end%>
+      </center>
+       배너자리끝! -->
+
+        <img src="/dailyvet_job.jpg" alt="데일리벳">
   </div>
 </center>
 </div>

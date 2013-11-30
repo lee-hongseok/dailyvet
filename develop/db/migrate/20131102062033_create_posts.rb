@@ -20,6 +20,11 @@ class CreatePosts < ActiveRecord::Migration
       t.integer    :vote_up,           :default => 0
       t.integer    :vote_down,         :default => 0
       t.integer    :counter,           :default => 0
+       t.string   :dummy1
+       t.string   :dummy2
+       t.string   :dummy3
+       t.string   :dummy4
+       t.string   :dummy5
       t.timestamps
     end
   end

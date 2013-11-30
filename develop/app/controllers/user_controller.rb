@@ -3,7 +3,7 @@ class UserController < ApplicationController
 skip_before_filter :get_user
   def login
     unless session[:id].nil?
-      redirect_to :controller => 'community' , :action => 'index'
+      redirect_to :controller => 'community' , :action => 'all'
     else
       render :layout => 'other_layout'
     end
@@ -19,13 +19,21 @@ skip_before_filter :get_user
           session[:name] = u.name  
           session[:user] = "DAILYVETadminDAILYVET"
           session[:id] = u.id  
-          redirect_to :controller => 'community', :action => 'index'
+          if session[:bbs] = 0
+            redirect_to :controller => 'community' , :action => 'all'
+          elsif session[:bbs] = 1
+            redirect_to :controller => 'job' , :action =>'all'
+          end
         else
           session[:name] = u.name  
           session[:user] = "USER"
           session[:id] = u.id  
           session[:view_check] = []
-          redirect_to :controller => 'community', :action => 'index'
+          if session[:bbs] = 1
+            redirect_to :controller => 'job' , :action =>'all'
+          elsif session[:bbs] = 0
+            redirect_to :controller => 'community' , :action => 'all'
+          end
         end
       else
         render :text => "탈퇴한 회원입니다."
@@ -56,9 +64,9 @@ skip_before_filter :get_user
       u.nickname = params[:nickname]
       u.user_id = params[:user_id]
       u.phone_number = params[:phone_number]
-      u.address = params[:address]
+      u.city = params[:city]
+      u.county = params[:county]
       u.field = params[:field]
-      puts params[:field]
       u.vet_number = params[:vet_number]
       u.student_number = params[:student_number]
       u.work_name = params[:work_name]
@@ -66,6 +74,7 @@ skip_before_filter :get_user
       u.university = params[:university]
       u.mail_receive = params[:mail_receive]
       u.sms_receive = params[:sms_receive]
+      u.make_token
       u.level = 1
       u.exit_flag = false
       u.save

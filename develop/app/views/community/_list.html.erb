@@ -130,7 +130,7 @@ padding:10px 0;
                       <%end%>
                   </a>
                   </td>
-                  <td><%=x.user.name%></td>
+                  <td><%=x.user.nickname%></td>
                   <td></td>
                   <td><%=x.counter%></td>
                   <td><%=x.created_at.to_s[2..10]%></td>
@@ -172,7 +172,7 @@ padding:10px 0;
                         <% if x.anomynous_flag == true %>
                           <a style=" color:#cacfd2;">필명숨김 </a> 
                         <% else %>
-                          <%=x.user.name%>
+                          <%=x.user.nickname%>
                         <% end %>
                       </td>
                       <td><%=x.vote_up - x.vote_down%></td>
@@ -207,7 +207,7 @@ padding:10px 0;
                         <% if x.anomynous_flag == true %>
                           <a style=" color:#cacfd2;">필명숨김 </a> 
                         <% else %>
-                          <%=x.user.name%>
+                          <%=x.user.nickname%>
                         <% end %>
                       </td>
                       <td><%=x.vote_up - x.vote_down%></td>
@@ -232,16 +232,16 @@ padding:10px 0;
         <% if @previous == 0 %>
           <li class="previous"><a href="#fake_link">&larr; Newer</a></li>
         <% else%>
-          <li class="previous"><a href="http://snuev.com:3113/community/index?page=<%=(@previous-1)*10 +1 %>">&larr; Newer</a></li>
+          <li class="previous"><a href="http://aws.hongsworld.com/community/index?page=<%=(@previous-1)*10 +1 %>">&larr; Newer</a></li>
         <% end%>
           <% (@previous * 10 + 1).upto(@previous*10 + 10) do |x|%>
             <% if x == @page_number %>
-              <li class="active"><a href="http://snuev.com:3113/community/index?page=<%=x%>"><%=@page_number%></a></li>
+              <li class="active"><a href="http://aws.hongsworld.com/community/index?page=<%=x%>"><%=@page_number%></a></li>
             <%else%>
-              <li><a href="http://snuev.com:3113/community/index?page=<%=x%>"><%=x%></a></li>
+              <li><a href="http://aws.hongsworld.com/community/index?page=<%=x%>"><%=x%></a></li>
             <%end%>
           <%end%>
-          <li class="next"><a href="http://snuev.com:3113/community/index?page=<%=(@previous+1)*10+  1%>">Previous &rarr;</a></li>
+          <li class="next"><a href="http://aws.hongsworld.com/community/index?page=<%=(@previous+1)*10+  1%>">Previous &rarr;</a></li>
         </ul>
       </div>
         </div>
