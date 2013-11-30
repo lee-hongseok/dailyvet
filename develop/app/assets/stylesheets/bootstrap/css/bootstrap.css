@@ -969,7 +969,7 @@ code {
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
 }
-
+/*
 pre {
   display: block;
   padding: 9.5px;
@@ -1005,7 +1005,7 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-
+*/
 form {
   margin: 0 0 20px;
 }

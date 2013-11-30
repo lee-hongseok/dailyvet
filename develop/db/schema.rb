@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(:version => 20131117053248) do
     t.boolean  "delete_flag",    :default => false
     t.string   "content",                           :null => false
     t.integer  "category",                          :null => false
-    t.integer  "job_area"
     t.integer  "vote_up",        :default => 0
     t.integer  "vote_down",      :default => 0
     t.integer  "counter",        :default => 0
@@ -89,11 +88,14 @@ ActiveRecord::Schema.define(:version => 20131117053248) do
 
   create_table "users", :force => true do |t|
     t.string   "name",                              :null => false
-    t.string   "nickname",                          :null => false
     t.string   "user_id",                           :null => false
+    t.string   "nickname",                          :null => false
     t.string   "password",                          :null => false
     t.string   "email",                             :null => false
     t.string   "phone_number",                      :null => false
+    t.string   "city",                              :null => false
+    t.string   "county",                            :null => false
+    t.string   "address_detail"
     t.integer  "field",          :default => 0
     t.string   "vet_number"
     t.string   "student_number"
@@ -105,8 +107,6 @@ ActiveRecord::Schema.define(:version => 20131117053248) do
     t.boolean  "exit_flag",      :default => false
     t.integer  "level",          :default => 1
     t.string   "token",                             :null => false
-    t.string   "city",                              :null => false
-    t.string   "county",                            :null => false
     t.string   "dummy1"
     t.string   "dummy2"
     t.string   "dummy3"

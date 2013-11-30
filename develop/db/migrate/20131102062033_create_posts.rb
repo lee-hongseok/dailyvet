@@ -14,9 +14,6 @@ class CreatePosts < ActiveRecord::Migration
                     #3 : 분류3
                     #4 : 분류4
                     #5 : 분류5
-                    #-1 : 구인게시판
-                    #-2 : 구인게시판
-      t.integer    :job_area
       t.integer    :vote_up,           :default => 0
       t.integer    :vote_down,         :default => 0
       t.integer    :counter,           :default => 0

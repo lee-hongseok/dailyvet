@@ -14,20 +14,21 @@
         <table class="rwd-table">
         <tbody>
           <tr height="10px" class="even">
-                <td width="10%">분야</td>
-                <td width="70%">제목</td>
-                <td width="10%">지역</td>
-                <td width="10%">날짜</td>
+                <td width="10%"><strong>분야</strong></td>
+                <td width="70%"><strong>제목</strong></td>
+                <td width="10%"><strong>지역</strong></td>
+                <td width="10%"><strong>날짜</strong></td>
           </tr>
               <%@notice.each do |x|%>
                   <% if x.notice_flag == true %> 
                 <tr class="even">
-                  <td>공지</td>
+                  <td><strong>공지</strong></td>
                   <td>
-                  <a style="font-weight:bold; color:#336699;" href="/job/detail?page=<%=@page_number%>&id=<%=x.id%>"><%=x.title%>
+                  <a style="font-weight:bold; color:#336699;" href="/job/detail?page=<%=@page_number%>&id=<%=x.id%>"><strong><%=x.title%>
                       <%unless x.comments.count == 0%>
                       [<%=x.comments.count%>]
                       <%end%>
+                      </strong>
                   </a>
                   </td>
                   <td></td>
@@ -61,7 +62,7 @@
                   <% end%> 
                   </td>
                   <td><%=x.city + " " +x.county%></td>
-                  <td><%=x.created_at[0..10]%></td>
+                  <td><%=x.created_at.to_s[0..10]%></td>
                   <td></td>
                 </tr>
                 <!--
@@ -95,7 +96,7 @@
                   </a>
                   <% end%>
                   </td>
-                  <td>notyet</td>
+                  <td><%=x.city + " " +x.county%></td>
                   <td><%=x.counter%></td>
                   <td></td>
                 </tr>
@@ -109,12 +110,12 @@
           <table class="table table-striped table-hover">
             <thead>
               <tr class="even">
-                <td>분야</td>
-                <td>제목</td>
-                <td>직장명</td>
-                <td>지역</td>
-                <td>날짜</td>
-                <td>조회</td>
+                <td><strong>분야</strong></td>
+                <td><strong>제목</strong></td>
+                <td><strong>직장명</strong></td>
+                <td><strong>지역</strong></td>
+                <td><strong>날짜</strong></td>
+                <td><strong>조회</strong></td>
               </tr>
             </thead>
             <tbody>
@@ -148,9 +149,9 @@
                       <td>
                           <%=x.name%>
                       </td>
-                      <td><%=x.address%></td>
-                      <td><%=x.counter%></td>
+                      <td><%=x.city + " " + x.county%></td>
                       <td><%=x.created_at.to_s[2..9]%></td>
+                      <td><%=x.counter%></td>
                     </tr>
                   <%else %> 
                     <tr class="even">
@@ -174,11 +175,11 @@
                       <%end%>
                       </td>
                       <td>
-                          <%=x.user.name%>
+                          <%=x.name%>
                       </td>
-                      <td>보트</td>
-                      <td><%=x.counter%></td>
+                      <td><%=x.city + " " + x.county%></td>
                       <td><%=x.created_at.to_s[2..9]%></td>
+                      <td><%=x.counter%></td>
                     </tr>
                   <% end%>
                 <%end%>

@@ -1,5 +1,9 @@
 <style>
+p{
+word-wrap:break-word;
+}
   b.word{
+word-wrap:break-word;
     margin:5px;
     font-size:10pt;
 
@@ -158,7 +162,7 @@ clear:both;
             </b>
           </div>
           <div class ="right">
-            <%=@clicked_post.address%>
+            <%=@clicked_post.city + " " + @clicked_post.county%>
           </div>
           </div>
           <div class = "clear">
@@ -279,7 +283,9 @@ clear:both;
             </b>
           </div>
           <div class ="detailright">
-            <pre><%=@clicked_post.detail%></pre>
+            <pre>
+              <p><%=@clicked_post.detail%></p>
+            </pre>
           </div>
           </div>
           <div class = "clear">
@@ -321,9 +327,9 @@ clear:both;
           </div>
           <div class = "clear">
           </div>
-          <div class = "comment_body">
-            <pre>
-            <%= comment.content %>
+          <div class = "comment_body" style="text-align:left;">
+            <pre style="text-align:left;">
+            <p><%= comment.content %></p>
             </pre>
           </div>
         </div>

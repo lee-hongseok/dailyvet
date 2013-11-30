@@ -1,6 +1,9 @@
 <script type="text/javascript" src="/jquery-2.0.3.min.js"></script>
 <center>
 <style>
+p{
+word-wrap:break-word;
+}
 div.rd_head {
   height:auto;
   border-bottom:1px solid #CCC
@@ -183,7 +186,7 @@ padding: 0 15px 0 0;
       </div>
       <div class ="rd_body" >
         <pre>
-          <%= @clicked_post.content %>
+          <p style="word-wrap:break-word"><%= @clicked_post.content %></p>
         </pre>
       </div>
       <%#<!--수정과 삭제 기능을 향한 링크-->%>
@@ -233,7 +236,7 @@ padding: 0 15px 0 0;
           </div>
           <div class = "comment_body">
             <pre>
-            <%= comment.content %>
+            <p><%= comment.content %></p>
             </pre>
           </div>
         </div>
@@ -270,7 +273,7 @@ padding: 0 15px 0 0;
 
 <script>
 
-var host_url = "http://aws.hongsworld.com"
+var host_url = "http://snuev.com:3113"
 $("#up").click(function () {
   $.ajax({
           url: host_url + "/community/vote.json",
