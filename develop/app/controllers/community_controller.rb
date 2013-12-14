@@ -23,7 +23,6 @@ skip_before_filter :get_user , :only => [:index]
     initial = final - 9
     puts final
     puts initial
-    puts "hasjdfasfhldfasdhflkasasdhfkafjklsddfhasdkasdjklfhasld"
 #   initial = @page_number*20-19
 #    final = @page_number*20
     #한페이지에는 10개씩의 글
@@ -35,9 +34,20 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def write
+    user = User.where(:token => session[:token]).last
+    if user.level ==1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
+    
   end
 
   def write_process
+    user = User.where(:token => session[:token]).last
+    if user.level ==1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     post = Post.new
 
     post.user_id = session[:id]
@@ -51,6 +61,11 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def detail
+    user = User.where(:token => session[:token]).last
+    if user.level ==1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     @page_number = params[:page].to_i
     if @previous == 0 
       @previous =1
@@ -81,11 +96,21 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def update
+    user = User.where(:token => session[:token]).last
+    if user.level ==1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     @post = Post.find(params[:id]) #업데이트 할 글을 뽑아옵시다.
   end
 
 
   def update_process #write_process랑 크게 다르지 않습니다.
+    user = User.where(:token => session[:token]).last
+    if user.level ==1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
       post = Post.find(params[:id])
     if post.user_id == session[:id]
       post.title = params[:title_from_view]
@@ -101,6 +126,11 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def reply_process
+    user = User.where(:token => session[:token]).last
+    if user.level ==1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
       reply = Comment.new
       reply.post_id = params[:post_id_from_view]
       reply.user_id = session[:id]
@@ -113,6 +143,11 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def delete_post
+    user = User.where(:token => session[:token]).last
+    if user.level ==1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     post = Post.find(params[:id])
     if post.user_id == session[:id]
 
@@ -125,6 +160,11 @@ skip_before_filter :get_user , :only => [:index]
   
   end
   def vote
+    user = User.where(:token => session[:token]).last
+    if user.level ==1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     user = User.where(:id => session[:id]).last
     if user.voted_posts.where(:post_id => params[:post_id].to_i).last.nil? 
       post = Post.where(:id => params[:post_id]).last
@@ -169,6 +209,11 @@ skip_before_filter :get_user , :only => [:index]
   end
   
   def comment_vote
+    user = User.where(:token => session[:token]).last
+    if user.level ==1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     user = User.where(:id => session[:id]).last
     if user.voted_comments.where(:comment_id => params[:comment_id].to_i).last.nil? 
       comment = Comment.where(:id => params[:comment_id]).last

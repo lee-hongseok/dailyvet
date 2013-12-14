@@ -1,6 +1,7 @@
 <style>
 p{
 word-wrap:break-word;
+margin:23px 0 0 10px;
 }
   b.word{
 word-wrap:break-word;
@@ -27,6 +28,7 @@ div.line{
 width:100%;
 }
 div.left{
+  text-align:center;
 background-color : #F5F7FA;
 border-right:1px solid #CCC;
 color:#5D6D9A;
@@ -40,32 +42,32 @@ border-bottom:1px solid #CCC;
 height:60px;
 }
 div.right{
-line-height:60px;
+/*line-height:60px;*/
 float:right;
 width:64.4%;
 border-bottom:1px solid #CCC;
 height:60px;
 }
 div.detailleft{
+  text-align:center;
 background-color : #F5F7FA;
 border-right:1px solid #CCC;
 color:#5D6D9A;
 font-weight:bold;
 font-size:15px;
 line-height:60px;
-float:left;
-width:35%;
+width:100%;
 min-width:80px;
 border-bottom:1px solid #CCC;
 min-width:80px;
-height:200px;
+height:100%;
 }
 div.detailright{
-line-height:60px;
-float:right;
-width:64.4%;
+/*line-height:60px;*/
+width:100%;
 border-bottom:1px solid #CCC;
-height:200px;
+height:auto;
+min-height:200px;
 
 }
 div.clear{
@@ -73,23 +75,13 @@ clear:both;
 }
 </style>
     <div class="container">
-      <!-- 배너자리시작! -->
+      <!-- 배너자리시작! 
       <center>
       <div  style="max-width:860px; width:auto; height:90px; border: 3px solid;">
         배너자리
       </div>
       </center>
-      <!-- 배너자리끝! -->
-        <center>
-      <br>
-      <br>
-      <br>
-        <div style="height:14px;">
-      </div>
-      </center>
-      <br>
-      <br>
-      <br>
+       배너자리끝! -->
       <div class="demo-row">
         <div class="demo-content-wide">
         <div class = "wrap">
@@ -99,7 +91,9 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.category%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -112,7 +106,9 @@ clear:both;
 
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.title%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -126,7 +122,9 @@ clear:both;
 
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.each%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -138,7 +136,9 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.hour%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -150,7 +150,9 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.name%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -162,7 +164,9 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.city + " " + @clicked_post.county%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -174,7 +178,9 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.to%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -186,7 +192,9 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.pay%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -198,7 +206,9 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.qualification%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -210,7 +220,9 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.experience%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -222,7 +234,9 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.favorite%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -234,7 +248,9 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.tel%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -246,7 +262,9 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.hp%>
+            </p>
           </div>
           </div>
           <div class = "clear">
@@ -258,7 +276,9 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.method%>
+            </p>
           
           </div>
           </div>
@@ -271,22 +291,26 @@ clear:both;
             </b>
           </div>
           <div class ="right">
+            <p>
             <%=@clicked_post.dead_line%>
+            </p>
           </div>
           </div>
           <div class = "clear">
           </div>
-
-          <div class = "line"> <!-- 줄바꾸기 --> <div class ="detailleft" >
-            <b class ="word">
-              세부사항
-            </b>
-          </div>
-          <div class ="detailright">
-            <pre>
-              <p><%=@clicked_post.detail%></p>
-            </pre>
-          </div>
+          <div class="detaildetail" style="height:auto;">
+            <div class = "line"> <!-- 줄바꾸기 --> 
+              <div class ="detailleft" >
+                <b class ="word">
+                  세부사항
+                </b>
+              </div>
+              <div class ="detailright">
+                <pre>
+                  <p style="margin:0px"><%=@clicked_post.detail%></p>
+                </pre>
+              </div>
+            </div>
           </div>
           <div class = "clear">
           </div>
@@ -295,12 +319,12 @@ clear:both;
             <div style="float:left;">  
             <button class="btn btn-small" type="button" onclick="location.href='/job'"><span class="fui-search"> 목록</span></button>
             </div>
-            <div style="float:right;">
-            <input class="btn btn-small" type="submit" onclick="location.href='/job/write'" value="글쓰기">
-            <% if @clicked_post.id == session[:id] %>
+            <div style="float:right; height:auto;">
+            <% if @clicked_post.user_id == session[:id]  or session[:user] =="DATILYVETadminDAILYVET"%>
             <button class="btn btn-small" type="submit" onclick="location.href='/job/update?id=<%=@clicked_post.id%>&page_number=<%=@page_number%>'" >수정</button>
             <button class="btn btn-small" type="submit" onclick="location.href='/job/delete?id=<%=@clicked_post.id%>&page_number=<%=@page_number%>'" >삭제</button>
             <% end%>
+            <input class="btn btn-small" style="width:35%" type="submit" onclick="location.href='/job/write'" value="글쓰기">
             </div>
             <br>
             <br>
@@ -308,14 +332,14 @@ clear:both;
             <br>
       <div class = "comment">
         <div class = "comment_title">
-          <p>Comments '<%=@clicked_post.comments.count%>'<p>
+          <p style="margin:0px;">Comments '<%=@clicked_post.comments.count%>'<p>
         </div>
         <!-- 리플을 보는 부분-->
         <% order = 1 %>
         <% @clicked_post.comments.each do |comment| %>
         <div class = "comment_each">
           <div class = "comment_header " style="float:left;">
-           <p> <span class ="order"><%=order%>. </span> <span class = "user_name"> 
+           <p style="margin:0px;"> <span class ="order"><%=order%>. </span> <span class = "user_name"> 
            <% if comment.anomynous_flag == true%>
            필명숨김
            <% else %>
@@ -329,7 +353,7 @@ clear:both;
           </div>
           <div class = "comment_body" style="text-align:left;">
             <pre style="text-align:left;">
-            <p><%= comment.content %></p>
+            <p style="margin:0px;"><%= comment.content %></p>
             </pre>
           </div>
         </div>

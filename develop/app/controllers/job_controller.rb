@@ -35,8 +35,18 @@ skip_before_filter :get_user , :only => [:index]
     @notice = JobPost.where(:category =>0).all.reverse
   end
   def write
+    user = User.where(:token => session[:token]).last
+    if user.level == 1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
   end
   def write_process
+    user = User.where(:token => session[:token]).last
+    if user.level == 1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     jp = JobPost.new
 
     jp.user_id = session[:id]
@@ -64,6 +74,11 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def detail
+    user = User.where(:token => session[:token]).last
+    if user.level == 1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     @page_number = params[:page].to_i
     if @previous == 0 
       @previous =1
@@ -95,11 +110,21 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def update
+    user = User.where(:token => session[:token]).last
+    if user.level == 1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     @post = JobPost.find(params[:id]) #업데이트 할 글을 뽑아옵시다.
   end
 
 
   def update_process #write_process랑 크게 다르지 않습니다.
+    user = User.where(:token => session[:token]).last
+    if user.level == 1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     if params[:id] == session[:id]
 
       jp = JobPost.find(params[:id])
@@ -129,6 +154,11 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def delete_post
+    user = User.where(:token => session[:token]).last
+    if user.level == 1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     if params[:id] == session[:id]
       post = Post.find(params[:id])
       post.delete_flag = true
@@ -149,6 +179,11 @@ skip_before_filter :get_user , :only => [:index]
       redirect_to :action => 'detail' , :id => jp_id , :page => page_number
   end
   def companion
+    user = User.where(:token => session[:token]).last
+    if user.level == 1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     @action_name = "companion"
 
     @page_number = params[:page].to_i
@@ -175,6 +210,11 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def domestic
+    user = User.where(:token => session[:token]).last
+    if user.level == 1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     @action_name = "domestic"
     @page_number = params[:page].to_i
     if @page_number < 10
@@ -202,6 +242,11 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def public
+    user = User.where(:token => session[:token]).last
+    if user.level == 1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
 
     @action_name = "public"
     @page_number = params[:page].to_i
@@ -229,6 +274,11 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def general
+    user = User.where(:token => session[:token]).last
+    if user.level == 1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     @action_name = "general"
     @page_number = params[:page].to_i
     if @page_number < 10
@@ -255,6 +305,11 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def etc
+    user = User.where(:token => session[:token]).last
+    if user.level == 1
+      flash[:notice] = "인증과정이 진행중입니다"
+      redirect_to :action => 'all'
+    end
     @action_name = "etc"
     @page_number = params[:page].to_i
     if @page_number < 10

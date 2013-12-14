@@ -97,7 +97,7 @@ clear:both;
                   </b>
                 </div>
                 <div class ="right">
-                  <input id="1" name="name" type="text" placeholder="이름을 입력해주십시오" style="width:90%;">
+                  <input value="<%=@user.name%>" id="1" name="name" type="text" placeholder="이름을 입력해주십시오" style="width:90%;">
                 </div>
               </div>
               <div class = "clear">
@@ -111,7 +111,7 @@ clear:both;
                   </b>
                 </div>
                 <div class ="right">
-                  <input id="2" name="user_id" type="text" placeholder="아이디를 입력해주십시오" style="width:90%;">
+                  <input value="<%=@user.user_id%>" id="2" name="user_id" type="text" placeholder="아이디를 입력해주십시오" style="width:90%;">
                 </div>
               </div>
               <div class = "clear">
@@ -124,7 +124,7 @@ clear:both;
                   </b>
                 </div>
                 <div class ="right">
-                  <input id="3" name="nickname" type="text" placeholder="닉네임을 입력해주십시오" style="width:90%;">
+                  <input value="<%=@user.nickname%>" id="3" name="nickname" type="text" placeholder="닉네임을 입력해주십시오" style="width:90%;">
                 </div>
               </div>
               <div class = "clear">
@@ -137,7 +137,7 @@ clear:both;
                     </b>
                 </div>
                 <div class ="right">
-                  <input id="password" type="password"  name="password" placeholder="비밀번호를 입력해주십시오" style="width:90%;">
+                  <input  id="password" type="password"  name="password" placeholder="비밀번호를 입력해주십시오" style="width:90%;">
 
                 </div>
               </div>
@@ -166,7 +166,7 @@ clear:both;
                     </b>
                 </div>
                 <div class ="right">
-                  <input  name="email" id="email" type="email" placeholder="메일주소를 입력해주십시오" style="width:90%;">
+                  <input value="<%=@user.email%>" name="email" id="email" type="email" placeholder="메일주소를 입력해주십시오" style="width:90%;">
                   <div id="email_check">
                   </div>
                 </div>
@@ -181,7 +181,7 @@ clear:both;
                     </b>
                 </div>
                 <div class ="right">
-                <input id="4" name="phone_number" type="tel" placeholder="휴대폰 번호를 입력해주십시오" style="width:90%;">
+                <input value="<%=@user.phone_number%>" id="4" name="phone_number" type="tel" placeholder="휴대폰 번호를 입력해주십시오" style="width:90%;">
                 </div>
               </div>
               <div class = "clear">
@@ -232,7 +232,7 @@ clear:both;
                     </b>
                 </div>
                 <div class ="right">
-                <input id="7" name="address_detail" type="tel" placeholder="주소를 입력해주십시오" style="width:90%;">
+                <input id="7" name="address_detail" type="tel" placeholder="주소를 입력해주십시오" value="<%=@user.address_detail%>" style="width:90%;">
                 </div>
               </div>
               <div class = "clear">

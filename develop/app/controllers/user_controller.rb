@@ -8,7 +8,7 @@ skip_before_filter :get_user
       render :layout => 'other_layout'
     end
   end
-
+  
   def login_process
     u=User.where(:user_id =>params[:user_id]).last
     if u.nil?
@@ -18,6 +18,7 @@ skip_before_filter :get_user
         if u.level == 0 
           session[:name] = u.name  
           session[:user] = "DAILYVETadminDAILYVET"
+          session[:token] = u.token
           session[:id] = u.id  
           if session[:bbs] = 0
             redirect_to :controller => 'community' , :action => 'all'
@@ -26,8 +27,8 @@ skip_before_filter :get_user
           end
         else
           session[:name] = u.name  
-          session[:user] = "USER"
           session[:id] = u.id  
+          session[:token] = u.token
           session[:view_check] = []
           if session[:bbs] = 1
             redirect_to :controller => 'job' , :action =>'all'
@@ -42,11 +43,14 @@ skip_before_filter :get_user
       render :text => "아이디 및 비밀번호가 틀렸습니다."
     end
   end
-
+  def modify
+    @user = User.where(:token => session[:token]).last
+  end
   def logout
     session[:user] = nil
     session[:id] = nil
     session[:name] = nil
+    session[:token] = nil
     redirect_to :action => 'login'
   end
 
