@@ -11,7 +11,6 @@ height:90% !important;
 }
 
 input{
-border:0px !important;
 margin:0px !important;
 }
 div.wrap{
@@ -28,20 +27,20 @@ border-right:1px solid #CCC;
 color:#5D6D9A;
 font-weight:bold;
 font-size:15px;
-line-height:60px;
+line-height:40px;
 float:left;
 width:35%;
 min-width:80px;
 border-bottom:1px solid #CCC;
-height:60px;
+height:40px;
 text-align:center;
 }
 div.right{
-line-height:60px;
+line-height:40px;
 float:right;
 width:64.4%;
 border-bottom:1px solid #CCC;
-height:60px;
+height:40px;
 }
 div.detailleft{
 background-color : #F5F7FA;
@@ -71,25 +70,17 @@ clear:both;
 }
 </style>
     <div class="container">
-      <!-- 배너자리시작! -->
+      <!-- 배너자리시작! 
       <center>
       <div  style="max-width:auto; height:90px; border: 3px solid;">
         배너자리
       </div>
       </center>
-      <!-- 배너자리끝! -->
-        <center>
-      <br>
-      <br>
-      <br>
-      </center>
-      <br>
-      <br>
-      <br>
+       배너자리끝! -->
       <div class="demo-row">
-        <div class="demo-content-wide">
-          <form  name="form" action ="/user/sign_up_process" method="POST">
-            <div id="wrap" class = "wrap">
+        <div class="demo-content-wide" >
+          <form  name="form" action ="/user/modify_process" method="POST">
+            <div id="wrap" class = "wrap"style="max-width:720px;">
               <div class = "line"> <!-- 줄바꾸기 --> 
                 <div class ="left">
                   <b class = "word">
@@ -111,7 +102,7 @@ clear:both;
                   </b>
                 </div>
                 <div class ="right">
-                  <input value="<%=@user.user_id%>" id="2" name="user_id" type="text" placeholder="아이디를 입력해주십시오" style="width:90%;">
+                  <b value="<%=@user.user_id%>" id="2" name="user_id" type="text" style="margin:0 0 0 10px;"><%=@user.user_id%></b>
                 </div>
               </div>
               <div class = "clear">
@@ -188,16 +179,16 @@ clear:both;
               </div>
 
               <div class = "line"> <!-- 줄바꾸기 --> 
-                <div class ="left" style="height:120px;">
+                <div class ="left" style="height:80px;">
                     <b class = "word">
                   주소 
                     </b>
                 </div>
-                <div class ="right"style="height:120px;">
+                <div class ="right"style="height:80px;">
 
                   <b class="word">시/도: </b>
                          <select id="5" name='city' onchange="change(this.selectedIndex);"  class=input style="width:120px; font-size:9pt; margin:0px;" >
-                             <option value='0'>선택해주십시오</option>
+                             <option value='<%=@user.city%>'><%=@user.city%></option>
                              <option value='서울'>서울특별시</option>
                              <option value='부산'>부산광역시</option>
                              <option value='대구'>대구광역시</option>
@@ -218,7 +209,7 @@ clear:both;
                            <br>
                            <b class = "word">구/군: </b>
                           <select id="6" name='county'  class=select style="width:120px; font-size:9pt; margin:0px;">
-                             <option value='0'>선택해주십시오</option>
+                             <option value='<%=@user.county%>'><%=@user.county%></option>
                           </select>
                 </div>
               </div>
@@ -232,7 +223,7 @@ clear:both;
                     </b>
                 </div>
                 <div class ="right">
-                <input id="7" name="address_detail" type="tel" placeholder="주소를 입력해주십시오" value="<%=@user.address_detail%>" style="width:90%;">
+                <input id="7" name="address_detail" type="text" placeholder="주소를 입력해주십시오" value="<%=@user.address_detail%>" style="width:90%;">
                 </div>
               </div>
               <div class = "clear">
@@ -245,7 +236,9 @@ clear:both;
                     </b>
                 </div>
                 <div class ="right">
-                <input name="mail_receive" type="checkbox" style="width:90%;">
+                <input name="mail_receive" type="checkbox" style="width:10%;"<% if @user.sms_receive == true%>
+                checked="checked"
+                <%end%>>
                 </div>
               </div>
               <div class = "clear">
@@ -258,7 +251,9 @@ clear:both;
                     </b>
                 </div>
                 <div class ="right">
-                <input name="sms_receive" type="checkbox" style="width:90%;">
+                <input name="sms_receive" type="checkbox" style="width:10%;" <% if @user.sms_receive == true%>
+                checked="checked"
+                <%end%>>
                 </div>
               </div>
               <div class = "clear">
@@ -272,7 +267,20 @@ clear:both;
                 </div>
                 <div class ="right">
                   <select  type="text" id="field" name="field"  style="border:0px; width:140px; font-size:9pt;"> 
-                    <option value=0>선택해주십시오</option>
+                  <% field = Hash.new %>
+                  <% field[1] = "수의대생"%>
+                  <% field[2] = "반려동물수의사"%>
+                  <% field[3] = "산업동물수의사"%>
+                  <% field[4] = "야생동물수의사"%>
+                  <% field[5] = "수의직공무원"%>
+                  <% field[6] = "수의관련업체"%>
+                  <% field[7] = "수의사회"%>
+                  <% field[8] = "수의과대학 교직원"%>
+                  <% field[9] = "수의장교"%>
+                  <% field[10] = "공중방역수의사"%>
+                  <% field[11] = "기타 수의사 회원"%>
+                  <% field[12] = "비 수의사 회원"%>
+                    <option value="<%=@user.field%>"><%=field[@user.field]%></option>
                     <option value=2>반려동물수의사</option>
                     <option value=3>산업동물수의사</option>
                     <option value=4>야생동물수의사</option>
@@ -282,7 +290,7 @@ clear:both;
                     <option value=8>수의과대학 교직원</option>
                     <option value=9>수의장교</option>
                     <option value=10>공중방역수의사</option>
-                    <option value=11>기타</option>
+                    <option value=11>기타 수의사 회원</option>
                     <option value=1>수의대생</option>
                     <option value=12>비수의사회원</option>
                   </select>
@@ -295,7 +303,7 @@ clear:both;
             </div> <!-- Wrap end-->
             <br>
             <div style="float:left;">  
-              <button class="btn btn-small" type="button" onclick="location.href='/user/logout'"><span class="fui-search"> 목록</span></button>
+              <button class="btn btn-small" type="button" onclick="location.href='/job/index'"><span class="fui-search"> 취소</span></button>
             </div>
             <div style="float:right;">
               <input class="btn btn-small" type="submit" value="작성완료">
@@ -365,10 +373,6 @@ $('form').submit(function () {
         alert('이름을 입력해주십시오');
         return false;
     }
-    if (name2  === '') {
-        alert('아이디를 입력해주십시오');
-        return false;
-    }
     if (name3  === '') {
         alert('닉네임을 입력해주십시오');
         return false;
@@ -431,7 +435,11 @@ $("#field").change(function() {
 +                      "</b>"
 +                  "</div>"
 +                  "<div class =\"right\">"
-+                  "<input id=\"vet_number=\" name=\"vet_number\" type=\"tel\" placeholder=\"면허번호를 입력하여 주십시오\" style=\"width:170px; font-size:9pt;\">"
+<% if @user.field < 12 and @user.field > 1%>
++                  "<input id=\"vet_number\" name=\"vet_number\" type=\"tel\" value=\"<%=@user.vet_number%>\" style=\"width:170px; font-size:9pt;\">"
+<% else%>
++                  "<input id=\"vet_number\" name=\"vet_number\" type=\"tel\" placeholder=\"면허번호를 입력하여 주십시오\" style=\"width:170px; font-size:9pt;\">"
+<% end%>
 +                  "</div>"
 +                "</div>"
 +                "<div class = \"clear\">"
@@ -443,7 +451,13 @@ $("#field").change(function() {
 +                      "</b>"
 +                  "</div>"
 +                  "<div class =\"right\">"
+<% if @user.field < 12 and @user.field > 1%>
++                  "<input id=\"work_name\" name=\"work_name\" type=\"text\" value=\"<%=@user.work_name%>\" style=\"width:90%;\">"
+<% else%>
 +                  "<input id=\"work_name\" name=\"work_name\" type=\"text\" placeholder=\"직장명을 입력해주십시오\" style=\"width:90%;\">"
+<% end%>
++                  "<input id=\"student_number\" type=\"hidden\" value=\"empty\">"
++                  "<input id=\"university\" type=\"hidden\" value=\"empty\">"
 +                  "</div>"
 +                "</div>"
 +                "<div class = \"clear\">"
@@ -455,30 +469,27 @@ $("#field").change(function() {
 +                      "</b>"
 +                  "</div>"
 +                  "<div class =\"right\">"
+<% if @user.field < 12 and @user.field > 1%>
++                  "<input id=\"work_number\" name=\"work_number\" type=\"tel\" value=\"<%=@user.work_number%>\" style=\"width:90%;\">"
+<% else%>
 +                  "<input id=\"work_number\" name=\"work_number\" type=\"tel\" placeholder=\"직장 연락처를 입력해주십시오\" style=\"width:90%;\">"
+<% end%>
 +                  "</div>"
 +                "</div>"
 +                "<div class = \"clear\">"
 +                "</div>"
-+              "</div>"
-+"<script>"
-+"$('form').submit(function () {"
-+"   var name12 = $.trim($('#vet_number').val());"
-+"   var name13 = $.trim($('#work_name').val());"
-+"   var name14 = $.trim($('#work_number').val());"
-+"   if (name12  === '') {"
-+"       alert('수의사 면허번호를 입력해주십시오');"
-+"       return false;"
-+"   }"
-+"   if (name13  === '') {"
-+"       alert('직장명을 입력해주십시오');"
-+"       return false;"
-+"   }"
-+"   if (name14  === '') {"
-+"       alert('직장연락처를 입력해주십시오');"
-+"       return false;"
-+"   }"
-+"<\/script>");
++              "</div>");
+      $('form').submit(function () {
+         if (status = "vet"){
+           name12 = $.trim($('#vet_number').val());
+           var name13 = $.trim($('#work_name').val());
+           var name14 = $.trim($('#work_number').val());
+           if (name12  === '') {
+               alert('수의사 면허번호를 입력해주십시오');
+               return false;
+           }
+         }
+      });
     }
     if ($.inArray($("#field").val(),student) >-1){
     $(".student").remove();
@@ -493,7 +504,13 @@ $("#field").change(function() {
 +                      "</b>"
 +                  "</div>"
 +                  "<div class =\"right\">"
-+                  "<input id=\"university\" name=\"vet_number\" type=\"tel\" placeholder=\"학교명을 입력하여 주십시오\" style=\"width:170px; font-size:9pt;\">"
+<% if @user.field == 1%>
++                  "<input id=\"university\" name=\"university\" type=\"text\" value=\"<%=@user.university%>\" style=\"width:170px; font-size:9pt;\">"
+//<%=@user.university%>
+//<%=@user.id%>
+<% else%>
++                  "<input id=\"university\" name=\"university\" type=\"text\" placeholder=\"학교명을 입력하여 주십시오\" style=\"width:170px; font-size:9pt;\">"
+<% end%>
 +                  "</div>"
 +                "</div>"
 +                "<div class = \"clear\">"
@@ -505,25 +522,31 @@ $("#field").change(function() {
 +                      "</b>"
 +                  "</div>"
 +                  "<div class =\"right\">"
-+                  "<input id=\"student_number\" name=\"work_name\" type=\"text\" placeholder=\"학번을 입력해주십시오 (예시:09학번)\" style=\"width:90%;\">"
+<% if @user.field == 1%>
++                  "<input id=\"student_number\" name=\"student_number\" type=\"text\" value=\"<%=@user.student_number%>\" style=\"width:90%;\">"
+<% else%>
++                  "<input id=\"student_number\" name=\"student_number\" type=\"text\" placeholder=\"학번을 입력해주십시오 (예시:09학번)\" style=\"width:90%;\">"
+<% end%>
++                  "<input id=\"vet_number\" type=\"hidden\" value=\"empty\">"
 +                  "</div>"
 +                "</div>"
 +                "<div class = \"clear\">"
 +                "</div>"
-+              "</div>"
-+"<script>"
-+"$('form').submit(function () {"
-+"    var name15 = $.trim($('#university').val());"
-+"    var name16 = $.trim($('#student_number').val());"
-+"   if (name15  === '') {"
-+"       alert('학교명을 입력해주십시오');"
-+"       return false;"
-+"   }"
-+"   if (name16  === '') {"
-+"       alert('학번을 입력해주십시오');"
-+"       return false;"
-+"   }"
-+"<\/script>");
++              "</div>");
+      $('form').submit(function () {
+          if (status = "student"){
+              var name15 = $.trim($('#university').val());
+              var name16 = $.trim($('#student_number').val());
+             if (name15  === '') {
+                 alert('학교명을 입력해주십시오');
+                 return false;
+             }
+             if (name16  === '') {
+                 alert('학번을 입력해주십시오');
+                 return false;
+             }
+          }
+      })
     }
     if ($.inArray($("#field").val(),external) >-1){
     $(".student").remove();
@@ -538,7 +561,15 @@ $("#field").change(function() {
 +                      "</b>"
 +                  "</div>"
 +                  "<div class =\"right\">"
-+                  "<input id=\"work_name\" name=\"vet_number\" type=\"tel\" placeholder=\"직장명을 입력하여 주십시오\" style=\"width:170px; font-size:9pt;\">"
+<% if @user.field == 12%>
++                  "<input id=\"work_name\" name=\"work_name\" type=\"text\" value=\"<%=@user.work_name%>\" style=\"width:170px; font-size:9pt;\">"
+<% else%>
++                  "<input id=\"work_name\" name=\"work_name\" type=\"text\" placeholder=\"직장명을 입력하여 주십시오\" style=\"width:170px; font-size:9pt;\">"
+<% end%>
+
++                  "<input id=\"vet_number\" type=\"hidden\" value=\"empty\">"
++                  "<input id=\"student_number\" type=\"hidden\" value=\"empty\">"
++                  "<input id=\"university_number\" type=\"hidden\" value=\"empty\">"
 +                  "</div>"
 +                "</div>"
 +                "<div class = \"clear\">"
@@ -550,25 +581,16 @@ $("#field").change(function() {
 +                      "</b>"
 +                  "</div>"
 +                  "<div class =\"right\">"
-+                  "<input id=\"work_number\" name=\"work_name\" type=\"text\" placeholder=\"직장연락처를 입력해주십시오\" style=\"width:90%;\">"
+<% if @user.field == 12%>
++                  "<input id=\"work_number\" name=\"work_number\" type=\"text\" value=\"<%=@user.work_number%>\" style=\"width:90%;\">"
+<% else%>
++                  "<input id=\"work_number\" name=\"work_number\" type=\"text\" placeholder=\"직장연락처를 입력해주십시오\" style=\"width:90%;\">"
+<% end%>
 +                  "</div>"
 +                "</div>"
 +                "<div class = \"clear\">"
 +                "</div>"
-+              "</div>"
-+"<script>"
-+"$('form').submit(function () {"
-+"   var name13 = $.trim($('#work_name').val());"
-+"   var name14 = $.trim($('#work_number').val());"
-+"   if (name13  === '') {"
-+"       alert('직장명을 입력해주십시오');"
-+"       return false;"
-+"   }"
-+"   if (name14  === '') {"
-+"       alert('직장연락처를 입력해주십시오');"
-+"       return false;"
-+"   }"
-+"<\/script>");
++              "</div>");
     }
 
   }).change();

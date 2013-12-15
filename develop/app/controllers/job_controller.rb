@@ -6,7 +6,7 @@ skip_before_filter :get_user , :only => [:index]
     redirect_to :action => "all"
   end
   def all
-    @action_name = "index"
+    @action_name = "all"
     @page_number = params[:page].to_i
     if @previous == 0 
       @previous =1
@@ -20,33 +20,24 @@ skip_before_filter :get_user , :only => [:index]
     if @page_number == 0
       @page_number=1
     end
-    final = JobPost.count - (@page_number-1)*10
+    final = JobPost.where(:delete_flag => false).count - (@page_number-1)*10
     initial = final - 9
-    puts final
-    puts initial
-    puts "hasjdfasfhldfasdhflkasasdhfkafjklsddfhasdkasdjklfhasld"
+    if initial < 1
+      initial = 1
+    end
 #   initial = @page_number*20-19
 #    final = @page_number*20
     #한페이지에는 10개씩의 글
 #@posts = Post.where(:delete_flag => false, :id => initial..final).all
-    @posts = JobPost.where(:id =>initial..final).reverse
+    @jp = JobPost.where(:delete_flag => false).count
+    @posts = JobPost.where(:delete_flag => false)[initial-1..final-1].reverse
     @users = User.all
     @comments = Comment.all
-    @notice = JobPost.where(:category =>0).all.reverse
+    @notice = JobPost.where(:delete_flag => false).where(:category =>0).all.reverse
   end
   def write
-    user = User.where(:token => session[:token]).last
-    if user.level == 1
-      flash[:notice] = "인증과정이 진행중입니다"
-      redirect_to :action => 'all'
-    end
   end
   def write_process
-    user = User.where(:token => session[:token]).last
-    if user.level == 1
-      flash[:notice] = "인증과정이 진행중입니다"
-      redirect_to :action => 'all'
-    end
     jp = JobPost.new
 
     jp.user_id = session[:id]
@@ -74,11 +65,6 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def detail
-    user = User.where(:token => session[:token]).last
-    if user.level == 1
-      flash[:notice] = "인증과정이 진행중입니다"
-      redirect_to :action => 'all'
-    end
     @page_number = params[:page].to_i
     if @previous == 0 
       @previous =1
@@ -100,39 +86,32 @@ skip_before_filter :get_user , :only => [:index]
       @clicked_post.save
     end
     puts @page_number
-    final = JobPost.last.id - (@page_number-1)*10
-    initial = final - 10
+    final = JobPost.where(:delete_flag => false).count - (@page_number-1)*10
+    initial = final - 9
     #한페이지에는 20개씩의 글
 #@posts = Post.where(:delete_flag => false, :id => initial..final).all
-    @posts = JobPost.where(:id => initial..final).all.reverse
-    @notice = JobPost.where(:category =>"공지").all.reverse
+    @posts = JobPost.where(:delete_flag => false).where(:id => initial..final).all.reverse
+    @notice = JobPost.where(:delete_flag => false).where(:category =>"공지").all.reverse
+    @this_user = User.where(:token => session[:token]).last
 
   end
 
   def update
-    user = User.where(:token => session[:token]).last
-    if user.level == 1
-      flash[:notice] = "인증과정이 진행중입니다"
-      redirect_to :action => 'all'
-    end
-    @post = JobPost.find(params[:id]) #업데이트 할 글을 뽑아옵시다.
+    @jp = JobPost.find(params[:id]) #업데이트 할 글을 뽑아옵시다.
   end
 
 
   def update_process #write_process랑 크게 다르지 않습니다.
-    user = User.where(:token => session[:token]).last
-    if user.level == 1
-      flash[:notice] = "인증과정이 진행중입니다"
-      redirect_to :action => 'all'
-    end
-    if params[:id] == session[:id]
 
       jp = JobPost.find(params[:id])
+      jp.user_id = User.where(:token => session[:token]).last.id
       jp.category = params[:category]
       jp.each = params[:each]
       jp.hour = params[:hour]
       jp.name = params[:name]
-      jp.address = params[:address]
+      jp.city = params[:city]
+      jp.county = params[:county]
+      jp.address_detail = params[:address_detail]
       jp.to = params[:to]
       jp.pay = params[:pay]
       jp.qualification = params[:qualification]
@@ -148,21 +127,13 @@ skip_before_filter :get_user , :only => [:index]
       jp.save                 
       
       redirect_to :action => 'detail' , :id =>params[:id], :page =>params[:page_number]
-    else
-      render :text => "잘못된 접근입니다."
-    end
   end
 
-  def delete_post
-    user = User.where(:token => session[:token]).last
-    if user.level == 1
-      flash[:notice] = "인증과정이 진행중입니다"
-      redirect_to :action => 'all'
-    end
-    if params[:id] == session[:id]
-      post = Post.find(params[:id])
-      post.delete_flag = true
-      post.save
+  def delete
+    if JobPost.where( :id => params[:id]).last.user_id == User.where(:token => session[:token]).last.id
+      jp = JobPost.find(params[:id])
+      jp.delete_flag = true
+      jp.save
       redirect_to :action => 'all' 
     else
       render :text => "잘못된 접근입니다"
@@ -179,138 +150,170 @@ skip_before_filter :get_user , :only => [:index]
       redirect_to :action => 'detail' , :id => jp_id , :page => page_number
   end
   def companion
-    user = User.where(:token => session[:token]).last
-    if user.level == 1
-      flash[:notice] = "인증과정이 진행중입니다"
-      redirect_to :action => 'all'
-    end
     @action_name = "companion"
-
     @page_number = params[:page].to_i
+    if @previous == 0 
+      @previous =1
+    end
     if @page_number < 10
       @previous = 0
     else
+        temp = @page_number -1
         @previous = temp.to_s[0..-2].to_i
     end
     if @page_number == 0
       @page_number=1
     end
-    final = JobPost.where(:category => "반려동물임상").count - (@page_number-1)*10
+    final = JobPost.where(:delete_flag => false).where(:category =>"반려동물임상").count - (@page_number-1)*10
     initial = final - 9
     if initial < 1
       initial = 1
     end
-    if final < 1 
-      @posts = JobPost.where(:id => 0).last
-    else
-      @posts = JobPost.where(:category => "반려동물임상")[initial-1 .. final-1].reverse
-    end
-    @notice = JobPost.where(:category =>0).all.reverse
-
+#   initial = @page_number*20-19
+#    final = @page_number*20
+    #한페이지에는 10개씩의 글
+#@posts = Post.where(:delete_flag => false, :id => initial..final).all
+    @jp = JobPost.where(:delete_flag => false).where(:category =>"반려동물임상").count
+    @posts = JobPost.where(:delete_flag => false).where(:category =>"반려동물임상")[initial-1..final-1].reverse
+    @users = User.all
+    @comments = Comment.all
+    @notice = JobPost.where(:delete_flag => false).where(:category =>0).all.reverse
   end
 
   def domestic
-    user = User.where(:token => session[:token]).last
-    if user.level == 1
-      flash[:notice] = "인증과정이 진행중입니다"
-      redirect_to :action => 'all'
-    end
     @action_name = "domestic"
     @page_number = params[:page].to_i
+    if @previous == 0 
+      @previous =1
+    end
     if @page_number < 10
       @previous = 0
     else
+        temp = @page_number -1
         @previous = temp.to_s[0..-2].to_i
     end
     if @page_number == 0
       @page_number=1
     end
-    final = JobPost.where(:category => "산업동물임상").count - (@page_number-1)*10
+    final = JobPost.where(:delete_flag => false).where(:category =>"산업동물임상").count - (@page_number-1)*10
     initial = final - 9
     if initial < 1
       initial = 1
     end
-    if final < 1 
-      @posts = JobPost.where(:id => 0).last
-    else
-      @posts = JobPost.where(:category => "산업동물임상")[initial-1 .. final-1].reverse
-    end
+#   initial = @page_number*20-19
+#    final = @page_number*20
+    #한페이지에는 10개씩의 글
+#@posts = Post.where(:delete_flag => false, :id => initial..final).all
+    @jp = JobPost.where(:delete_flag => false).where(:category =>"산업동물임상").count
+    @posts = JobPost.where(:delete_flag => false).where(:category =>"산업동물임상")[initial-1..final-1].reverse
     @users = User.all
     @comments = Comment.all
-    @notice = JobPost.where(:category =>0).all.reverse
-
+    @notice = JobPost.where(:delete_flag => false).where(:category =>0).all.reverse
   end
 
   def public
-    user = User.where(:token => session[:token]).last
-    if user.level == 1
-      flash[:notice] = "인증과정이 진행중입니다"
-      redirect_to :action => 'all'
-    end
-
     @action_name = "public"
     @page_number = params[:page].to_i
+    if @previous == 0 
+      @previous =1
+    end
     if @page_number < 10
       @previous = 0
     else
+        temp = @page_number -1
         @previous = temp.to_s[0..-2].to_i
     end
     if @page_number == 0
       @page_number=1
     end
-    final = JobPost.where(:category => "공무원").count - (@page_number-1)*10
+    final = JobPost.where(:delete_flag => false).where(:category =>"공무원").count - (@page_number-1)*10
     initial = final - 9
     if initial < 1
       initial = 1
     end
-    if final < 1 
-      @posts = JobPost.where(:id => 0).last
-    else
-      @posts = JobPost.where(:category => "공무원")[initial-1 .. final-1].reverse
-    end
+#   initial = @page_number*20-19
+#    final = @page_number*20
+    #한페이지에는 10개씩의 글
+#@posts = Post.where(:delete_flag => false, :id => initial..final).all
+    @jp = JobPost.where(:delete_flag => false).where(:category =>"공무원").count
+    @posts = JobPost.where(:delete_flag => false).where(:category =>"공무원")[initial-1..final-1].reverse
     @users = User.all
     @comments = Comment.all
-    @notice = JobPost.where(:category =>0).all.reverse
+    @notice = JobPost.where(:delete_flag => false).where(:category =>0).all.reverse
   end
 
   def general
-    user = User.where(:token => session[:token]).last
-    if user.level == 1
-      flash[:notice] = "인증과정이 진행중입니다"
-      redirect_to :action => 'all'
-    end
     @action_name = "general"
     @page_number = params[:page].to_i
+    if @previous == 0 
+      @previous =1
+    end
     if @page_number < 10
       @previous = 0
     else
+        temp = @page_number -1
         @previous = temp.to_s[0..-2].to_i
     end
     if @page_number == 0
       @page_number=1
     end
-    final = JobPost.where(:category => "일반업체").count - (@page_number-1)*10
+    final = JobPost.where(:delete_flag => false).where(:category =>"일반업체").count - (@page_number-1)*10
     initial = final - 9
     if initial < 1
       initial = 1
     end
-    if final < 1 
-      @posts = JobPost.where(:id => 0).last
-    else
-      @posts = JobPost.where(:category => "일반업체")[initial-1 .. final-1].reverse
-    end
+#   initial = @page_number*20-19
+#    final = @page_number*20
+    #한페이지에는 10개씩의 글
+#@posts = Post.where(:delete_flag => false, :id => initial..final).all
+    @jp = JobPost.where(:delete_flag => false).where(:category =>"일반업체").count
+    @posts = JobPost.where(:delete_flag => false).where(:category =>"일반업체")[initial-1..final-1].reverse
     @users = User.all
     @comments = Comment.all
-    @notice = JobPost.where(:category =>0).all.reverse
+    @notice = JobPost.where(:delete_flag => false).where(:category =>0).all.reverse
+
   end
 
   def etc
-    user = User.where(:token => session[:token]).last
-    if user.level == 1
-      flash[:notice] = "인증과정이 진행중입니다"
-      redirect_to :action => 'all'
-    end
     @action_name = "etc"
+    @page_number = params[:page].to_i
+    if @previous == 0 
+      @previous =1
+    end
+    if @page_number < 10
+      @previous = 0
+    else
+        temp = @page_number -1
+        @previous = temp.to_s[0..-2].to_i
+    end
+    if @page_number == 0
+      @page_number=1
+    end
+    final = JobPost.where(:delete_flag => false).where(:category =>"기타").count - (@page_number-1)*10
+    initial = final - 9
+    if initial < 1
+      initial = 1
+    end
+#   initial = @page_number*20-19
+#    final = @page_number*20
+    #한페이지에는 10개씩의 글
+#@posts = Post.where(:delete_flag => false, :id => initial..final).all
+    @jp = JobPost.where(:delete_flag => false).where(:category =>"기타").count
+    @posts = JobPost.where(:delete_flag => false).where(:category =>"기타")[initial-1..final-1].reverse
+    @users = User.all
+    @comments = Comment.all
+    @notice = JobPost.where(:delete_flag => false).where(:category =>0).all.reverse
+
+
+
+  end
+
+  def search
+    keyword = params[:search_word].strip.squeeze(" ").gsub(" ","%")
+    @search_word = params[:search_word]
+    keyword = "%" + keyword + "%"
+    @posts = JobPost.where(:delete_flag => false).where("title like ? or name like ? or detail like ?",keyword,keyword,keyword)
+    @action_name = "search"
     @page_number = params[:page].to_i
     if @page_number < 10
       @previous = 0
@@ -320,7 +323,7 @@ skip_before_filter :get_user , :only => [:index]
     if @page_number == 0
       @page_number=1
     end
-    final = JobPost.where(:category => "기타").count - (@page_number-1)*10
+    final = @posts.where(:delete_flag => false).where("title like ? or name like ? or detail like ?",keyword,keyword,keyword).count - (@page_number-1)*10
     initial = final - 9
     if initial < 1
       initial = 1
@@ -328,11 +331,12 @@ skip_before_filter :get_user , :only => [:index]
     if final < 1 
       @posts = JobPost.where(:id => 0).last
     else
-      @posts = JobPost.where(:category => "기타")[initial-1 .. final-1].reverse
+      @posts = @posts.where(:delete_flag => false).where("title like ? or name like ? or detail like ?",keyword,keyword,keyword)[initial-1 .. final-1].reverse
     end
     @users = User.all
     @comments = Comment.all
     @notice = JobPost.where(:category =>0).all.reverse
+    @jp = JobPost.where(:delete_flag => false).where("title like ? or name like ? or detail like ?",keyword,keyword,keyword).count
   end
 
 end

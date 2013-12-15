@@ -1,4 +1,8 @@
 <style>
+  b.word{
+  margin:5px;
+  font-size:10pt;
+}
 textarea{
 border:0px !important;
 margin:0px !important;
@@ -6,7 +10,6 @@ height:90% !important;
 }
 
 input{
-border:0px !important;
 margin:0px !important;
 }
 div.wrap{
@@ -14,49 +17,45 @@ border : 1px solid #CCC;
 }
 div.line{
 width:100%;
-border-bottom:1px solid #D6DCE9;
 }
 div.left{
 background-color : #F5F7FA;
-border-right:1px solid #D6DCE9;
+border-right:1px solid #CCC;
 color:#5D6D9A;
 font-weight:bold;
 font-size:15px;
-line-height:60px;
-padding:0 0 0 20px;
+line-height:40px;
 float:left;
-width:20%;
+width:35%;
 min-width:80px;
 border-bottom:1px solid #CCC;
-height:60px;
+height:40px;
 }
 div.right{
-padding:0 0 0 10px;
-line-height:60px;
-float:left;
-width:75%;
+line-height:40px;
+float:right;
+width:64.4%;
 border-bottom:1px solid #CCC;
-height:60px;
+height:40px;
 }
 div.detailleft{
 background-color : #F5F7FA;
-border-right:1px solid #D6DCE9;
+border-right:1px solid #CCC;
 color:#5D6D9A;
 font-weight:bold;
 font-size:15px;
 line-height:60px;
-padding:0 0 0 20px;
 float:left;
-width:20%;
+width:35%;
 min-width:80px;
 border-bottom:1px solid #CCC;
+min-width:80px;
 height:200px;
 }
 div.detailright{
-padding:0 0 0 10px;
 line-height:60px;
-float:left;
-width:75%;
+float:right;
+width:64.4%;
 border-bottom:1px solid #CCC;
 height:200px;
 
@@ -71,7 +70,6 @@ clear:both;
       <br>
       <br>
         <div style="height:14px;">
-      글쓰기  반려동물임상 | 산업동물임상 | 공무원 | 일반업체 | 기타 구직글보기
       </div>
       </center>
       <br>
@@ -79,26 +77,22 @@ clear:both;
       <br>
       <div class="demo-row">
         <div class="demo-content-wide">
-        <form action ="/job/update_process" method="POST">
+        <form name="form" action ="/job/update_process" method="POST">
+        <input type="hidden" value="<%=@jp.id%>" name="id" >
         <div class = "wrap">
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
-            분야
+              <b class ="word">
+                분야
+              </b>
           </div>
           <div class ="right">
-<select type="text" name="category" id="myDropdown" style="border:0px;"> 
-<% temp = Array.new%>
-<% temp = ["반려동물임상", "산업동물임상", "공무원", "일반업체", "기타"]%>
-<% temp.each do |x| %>
-  <% if @post.category =="공지"%>
-  <option selected="selected" val="<%=@post.category%>"><%=@post.category%></option>
-    <% break%>
-  <% elsif x == @post.category%>
-  <option selected="selected" val="<%=x%>"><%=x%></option>
-  <% else%>
-  <option val="<%=x%>"><%=x%></option>
-  <% end%>
-
-<% end%>
+<select type="text" name="category" id="myDropdown" style="border:0px; width:100%;"> 
+  <option value="<%=@jp.category%>"><%=@jp.category%></option>
+  <option value="반려동물임상">반려동물임상</option>
+  <option value="산업동물임상">산업동물임상</option>
+  <option value="공무원">공무원</option>
+  <option value="일반업체">일반업체</option>
+  <option value="기타">기타</option>
 </select>
           </div>
           </div>
@@ -106,12 +100,13 @@ clear:both;
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
-            제목 
+            <b class = "word">
+              제목 
+            </b>
 
           </div>
           <div class ="right">
-          <input name="title" value="<%=@post.title%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
-          <input type="hidden"  name="id" value="<%=@post.id%>">
+          <input id="1"  name="title" type="text" value="<%=@jp.title%>"style="width:90%;"maxlength="28">
           </div>
           </div>
           <div class = "clear">
@@ -119,141 +114,207 @@ clear:both;
 
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class = "word">
             담당업무
+            </b>
 
           </div>
           <div class ="right">
-          <input name="each" value="<%=@post.each%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="2" name="each" type="text" value="<%=@jp.each %>" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class = "word">
             근무시간
+            </b>
           </div>
           <div class ="right">
-          <input name="hour" type="text" value="<%=@post.hour%>" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="3" name="hour" type="text" value="<%=@jp.hour %>" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class = "word">
             직장명 
+            </b>
           </div>
           <div class ="right">
-          <input name="name" value="<%=@post.name%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="4" name="name" type="text" value="<%=@jp.name %>" style="width:90%;" maxlength="28">
+          </div>
+          </div>
+          <div class = "clear">
+          </div>
+
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left" style="height:80px;">
+              <b class = "word">
+            주소 
+              </b>
+          </div>
+          <div class ="right"style="height:80px;">
+
+            <b class="word">시/도: </b>
+                   <select id="5" name='city' onchange="change(this.selectedIndex);"  class=input style="width:120px; font-size:9pt; margin:0px;" >
+                       <option value='<%=@jp.city%>'><%=@jp.city%></option>
+                       <option value='서울'>서울특별시</option>
+                       <option value='부산'>부산광역시</option>
+                       <option value='대구'>대구광역시</option>
+                       <option value='인천'>인천광역시</option>
+                       <option value='광주'>광주광역시</option>
+                       <option value='대전'>대전광역시</option>
+                       <option value='울산'>울산광역시</option>
+                       <option value='경기'>경기도</option>
+                       <option value='강원'>강원도</option>
+                       <option value='충북'>충청북도</option>
+                       <option value='충남'>충청남도</option>
+                       <option value='전북'>전라북도</option>
+                       <option value='전남'>전라남도</option>
+                       <option value='경북'>경상북도</option>
+                       <option value='경남'>경상남도</option>
+                       <option value='제주'>제주도</option>
+                     </select>                                                  
+                     <br>
+                     <b class = "word">구/군: </b>
+                    <select id="6" name='county'  class=select style="width:120px; font-size:9pt; margin:0px;">
+                       <option value='<%=@jp.county%>'><%=@jp.county%></option>
+                    </select>
           </div>
           </div>
           <div class = "clear">
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
-            근무지주소
+              <b class = "word">
+            세부 주소  
+              </b>
           </div>
           <div class ="right">
-          <input name="address" value="<%=@post.address%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input name="address_detail" type="text" value="<%=@jp.address_detail %>" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
           </div>
 
+
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class = "word">
             모집인원
+            </b>
           </div>
           <div class ="right">
-          <input  name="to" value="<%=@post.to%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="7" name="to" type="text" value="<%=@jp.to %>" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class = "word">
             급여
+            </b>
           </div>
           <div class ="right">
-          <input name="pay" value="<%=@post.pay%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="8" name="pay" type="text" value="<%=@jp.pay %>" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
-            응시자격
+            <b class = "word">
+            모집자격
+            </b>
           </div>
           <div class ="right">
-          <input name="qualification" value="<%=@post.qualification%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="9" name="qualification" type="text" value="<%=@jp.qualification %>" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class = "word">
             경력사항
+            </b>
           </div>
           <div class ="right">
-          <input name="experience" value="<%=@post.experience%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="10" name="experience" type="text" value="<%=@jp.experience %>" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class = "word">
             우대조건
+            </b>
           </div>
           <div class ="right">
-          <input name="favorite" value="<%=@post.favorite%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="11" name="favorite" type="text" value="<%=@jp.favorite %>" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class = "word">
             전화번호
+            </b>
           </div>
           <div class ="right">
-          <input name="tel" value="<%=@post.tel%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="12" name="tel" type="text" value="<%=@jp.tel %>" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class = "word">
             핸드폰 번호
+            </b>
           </div>
           <div class ="right">
-          <input name="hp" value="<%=@post.hp%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="13" name="hp" type="tel" value="<%=@jp.hp %>" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class = "word">
             채용방법
+            </b>
           </div>
           <div class ="right">
-          <input name="method" value="<%=@post.method%>" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="14" name="method" type="text" value="<%=@jp.method %>" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="left">
+            <b class = "word">
             마감일
+            </b>
           </div>
           <div class ="right">
-          <input  name="dead_line" value="<%=@post.dead_line%>" placeholder="내용을 입력해주십시오" type="text" style="width:90%;">
+          <input  id="15" name="dead_line" value="<%=@jp.dead_line %>" type="text" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
           </div>
 
           <div class = "line"> <!-- 줄바꾸기 --> <div class ="detailleft" >
+            <b class = "word">
             세부사항
+            </b>
           </div>
           <div class ="detailright">
-          <textarea name="detail" type="text" style="width:90%;"><%=@post.detail%> </textarea>
+          <textarea id="16" name="detail" type="text"  style="width:90%;"> <%=@jp.detail%> </textarea>
           </div>
           </div>
           <div class = "clear">
@@ -261,7 +322,7 @@ clear:both;
         </div>
             <br>
             <div style="float:left;">  
-            <button class="btn btn-small" type="button" onclick="location.href='/user/logout'"><span class="fui-search"> 목록</span></button>
+            <button class="btn btn-small" type="button" onclick="location.href='/job/index'"><span class="fui-search"> 목록</span></button>
             </div>
             <div style="float:right;">
             <input class="btn btn-small" type="submit" value="작성완료">
@@ -273,3 +334,120 @@ clear:both;
 
 
 
+<script type="text/javascript">
+  // 여기서부터 주소 자바스크립트 
+     var cnt = new Array();
+     cnt[0] = new Array('전체');
+     cnt[1] = new Array('전체','강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구','서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구');
+     cnt[2] = new Array('전체','강서구','금정구','남구','동구','동래구','부산진구','북구','사상구','사하구','서구','수영구','연제구','영도구','중구','해운대구','기장군');
+     cnt[3] = new Array('전체','남구','달서구','동구','북구','서구','수성구','중구','달성군');
+     cnt[4] = new Array('전체','계양구','남구','남동구','동구','부평구','서구','연수구','중구','강화군','옹진군');
+     cnt[5] = new Array('전체','광산구','남구','동구','북구','서구');
+     cnt[6] = new Array('전체','대덕구','동구','서구','유성구','중구');
+     cnt[7] = new Array('전체','남구','동구','북구','중구','울주군');
+     cnt[8] = new Array('전체','고양시','과천시','광명시','구리시','군포시','남양주시','동두천시','부천시','성남시','수원시','시흥시','안산시','안양시','오산시','의왕시','의정부시','평택시','하남시','가평군','광주시','김포시','안성시','양주군','양평군','여주군','연천군','용인시','이천군','파주시','포천시','화성시');
+     cnt[9] = new Array('전체','강릉시','동해시','삼척시','속초시','원주시','춘천시','태백시','고성군','양구군','양양군','영월군','인제군','정선군','철원군','평창군','홍천군','화천군','황성군');
+     cnt[10] = new Array('전체','제천시','청주시','충주시','괴산군','단양군','보은군','영동군','옥천군','음성군','진천군','청원군');
+     cnt[11] = new Array('전체','공주시','보령시','서산시','아산시','천안시','금산군','논산군','당진군','부여군','서천군','연기군','예산군','청양군','태안군','홍성군');
+     cnt[12] = new Array('전체','군산시','김제시','남원시','익산시','전주시','정읍시','고창군','무주군','부안군','순창군','완주군','임실군','장수군','진안군');
+     cnt[13] = new Array('전체','광양시','나주시','목포시','순천시','여수시','여천시','강진군','고흥군','곡성군','구례군','담양군','무안군','보성군','신안군','여천군','영광군','영암군','완도군','장성군','장흥군','진도군','함평군','해남군','화순군');
+     cnt[14] = new Array('전체','경산시','경주시','구미시','김천시','문겅시','상주시','안동시','영주시','영천시','포항시','고령군','군위군','봉화군','성주군','영덕군','영양군','예천군','울릉군','울진군','의성군','청도군','청송군','칠곡군');
+     cnt[15] = new Array('전체','거제시','김해시','마산시','밀양시','사천시','울산시','진주시','진해시','창원시','통영시','거창군','고성군','남해군','산청군','양산시','의령군','창녕군','하동군','함안군','함양군','합천군');
+     cnt[16] = new Array('전체','서귀포시','제주시','남제주군','북제주군');
+     function change(add) {
+     sel=document.form.county
+       
+       for (i=sel.length-1; i>=0; i--){
+         sel.options[i] = null
+         }
+       
+       for (i=0; i < cnt[add].length;i++){                     
+                         sel.options[i] = new Option(cnt[add][i], cnt[add][i]);
+         }         
+     }
+// 여기까지 주소 js
+$('form').submit(function () {
+    // Get the Login Name value and trim it
+    var name0 = $("#myDropdown").val();
+    var name1 = $.trim($('#1').val());
+    var name2 = $.trim($('#2').val());
+    var name3 = $.trim($('#3').val());
+    var name4 = $.trim($('#4').val());
+    var name5 = $('#5').val();
+    var name6 = $('#6').val();
+    var name7 = $.trim($('#7').val());
+    var name8 = $.trim($('#8').val());
+    var name9 = $.trim($('#9').val());
+    var name10 = $.trim($('#10').val());
+    var name11 = $.trim($('#11').val());
+    var name12 = $.trim($('#12').val());
+    var name13 = $.trim($('#13').val());
+    var name14 = $.trim($('#14').val());
+    var name15 = $.trim($('#15').val());
+    var name16 = $.trim($('#16').val());
+
+    // Check if empty of not
+    if (name0  == '0') {
+        alert('분야를 선택해주십시오');
+        return false;
+    }
+    if (name1  === '') {
+        alert('제목을 입력해주십시오');
+        return false;
+    }
+    if (name2  === '') {
+        alert('담당업무를 입력해주십시오');
+        return false;
+    }
+    if (name3  === '') {
+        alert('근무시간을 입력해주십시오');
+        return false;
+    }
+    if (name4  === '') {
+        alert('직장명을 입력해주십시오');
+        return false;
+    }
+    if (name5  == '0') {
+        alert('시/도를 선택해주십시오');
+        return false;
+    }
+    if (name6  == '0') {
+        alert('구/군을 선택해주십시오');
+        return false;
+    }
+    if (name7  === '') {
+        alert('모집인원을 입력해주십시오');
+        return false;
+    }
+    if (name8  === '') {
+        alert('급여를 입력해주십시오');
+        return false;
+    }
+    if (name9  === '') {
+        alert('모집자격을 입력해주십시오');
+        return false;
+    }
+    if (name10  === '') {
+        alert('경력사항을 입력해주십시오');
+        return false;
+    }
+    if (name11  === '') {
+        alert('우대조건을 입력해주십시오');
+        return false;
+    }
+    if (name12  === '') {
+        alert('전화번호를 입력해주십시오');
+        return false;
+    }
+    if (name14  === '') {
+        alert('채용방법을 입력해주십시오');
+        return false;
+    }
+    if (name15  === '') {
+        alert('마감일을 입력해주십시오');
+        return false;
+    }
+});
+
+
+</script>

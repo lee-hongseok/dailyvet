@@ -25,21 +25,23 @@ border-right:1px solid #CCC;
 color:#5D6D9A;
 font-weight:bold;
 font-size:15px;
-line-height:60px;
+line-height:40px;
 float:left;
 width:35%;
 min-width:80px;
 border-bottom:1px solid #CCC;
-height:60px;
+height:40px;
+text-align:center;
 }
 div.right{
-line-height:60px;
+line-height:40px;
 float:right;
 width:64.4%;
 border-bottom:1px solid #CCC;
-height:60px;
+height:40px;
 }
 div.detailleft{
+  text-align:center;
 background-color : #F5F7FA;
 border-right:1px solid #CCC;
 color:#5D6D9A;
@@ -66,16 +68,6 @@ clear:both;
 }
 </style>
     <div class="container">
-        <center>
-      <br>
-      <br>
-      <br>
-        <div style="height:14px;">
-      </div>
-      </center>
-      <br>
-      <br>
-      <br>
       <div class="demo-row">
         <div class="demo-content-wide">
         <form name="form" action ="/job/write_process" method="POST">
@@ -106,7 +98,7 @@ clear:both;
 
           </div>
           <div class ="right">
-          <input id="1"  name="title" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="1"   maxlength="28" name="title" type="text" placeholder="제목을 입력해주십시오 (최대길이 28자)" style="width:90%;">
           </div>
           </div>
           <div class = "clear">
@@ -120,7 +112,7 @@ clear:both;
 
           </div>
           <div class ="right">
-          <input id="2" name="each" type="text" placeholder="내용을 입력해주십시오 (예시 : 관리수의사, 진료수의사, 인턴, TM 등)" style="width:90%;">
+          <input id="2" name="each" type="text" placeholder="내용을 입력해주십시오 (예시 : 관리수의사, 진료수의사, 인턴, TM 등)" style="width:90%;" maxlength="28" >
           </div>
           </div>
           <div class = "clear">
@@ -132,7 +124,7 @@ clear:both;
             </b>
           </div>
           <div class ="right">
-          <input id="3" name="hour" type="text" placeholder="내용을 입력해주십시오 (예시 : 주5일 1일근무 8시간 09:00 ~ 19:00)" style="width:90%;">
+          <input id="3" name="hour" type="text" placeholder="내용을 입력해주십시오 (예시 : 주5일 1일근무 8시간 09:00 ~ 19:00)" style="width:90%;"maxlength="28" >
           </div>
           </div>
           <div class = "clear">
@@ -144,18 +136,18 @@ clear:both;
             </b>
           </div>
           <div class ="right">
-          <input id="4" name="name" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="4" name="name" type="text" placeholder="내용을 입력해주십시오" style="width:90%;" maxlength="28" >
           </div>
           </div>
           <div class = "clear">
           </div>
 
-          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left" style="height:120px;">
+          <div class = "line"> <!-- 줄바꾸기 --> <div class ="left" style="height:80px;">
               <b class = "word">
             주소 
               </b>
           </div>
-          <div class ="right"style="height:120px;">
+          <div class ="right"style="height:80px;">
 
             <b class="word">시/도: </b>
                    <select id="5" name='city' onchange="change(this.selectedIndex);"  class=input style="width:120px; font-size:9pt; margin:0px;" >
@@ -193,7 +185,7 @@ clear:both;
               </b>
           </div>
           <div class ="right">
-          <input name="address_detail" type="tel" placeholder="주소를 입력해주십시오(예시 : 신사동 xxx-xx)" style="width:90%;">
+          <input name="address_detail" type="text" placeholder="주소를 입력해주십시오(예시 : 신사동 xxx-xx)" style="width:90%;" maxlength="28" >
           </div>
           </div>
           <div class = "clear">
@@ -206,7 +198,7 @@ clear:both;
             </b>
           </div>
           <div class ="right">
-          <input id="7" name="to" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="7" name="to" type="text" placeholder="내용을 입력해주십시오" style="width:90%;" maxlength="28" >
           </div>
           </div>
           <div class = "clear">
@@ -218,7 +210,7 @@ clear:both;
             </b>
           </div>
           <div class ="right">
-          <input id="8" name="pay" type="text" placeholder="내용을 입력해주십시오 (예시 : 세전 월250만원 이상)" style="width:90%;">
+          <input id="8" name="pay" type="text" placeholder="내용을 입력해주십시오 (예시 : 세전 월250만원 이상)" style="width:90%;" maxlength="28" >
           </div>
           </div>
           <div class = "clear">
@@ -230,7 +222,7 @@ clear:both;
             </b>
           </div>
           <div class ="right">
-          <input id="9" name="qualification" type="text" placeholder="내용을 입력해주십시오 (수의사면허소지자, 2014년 수의학과 졸업예정자)" style="width:90%;">
+          <input id="9" name="qualification" type="text" placeholder="내용을 입력해주십시오 (수의사면허소지자, 2014년 수의학과 졸업예정자)" style="width:90%;" maxlength="28" >
           </div>
           </div>
           <div class = "clear">
@@ -242,7 +234,7 @@ clear:both;
             </b>
           </div>
           <div class ="right">
-          <input id="10" name="experience" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="10" name="experience" type="text" placeholder="내용을 입력해주십시오" style="width:90%;" maxlength="28" >
           </div>
           </div>
           <div class = "clear">
@@ -254,7 +246,7 @@ clear:both;
             </b>
           </div>
           <div class ="right">
-          <input id="11" name="favorite" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="11" name="favorite" type="text" placeholder="내용을 입력해주십시오" style="width:90%;" maxlength="28" >
           </div>
           </div>
           <div class = "clear">
@@ -266,7 +258,7 @@ clear:both;
             </b>
           </div>
           <div class ="right">
-          <input id="12" name="tel" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="12" name="tel" type="text" placeholder="내용을 입력해주십시오" style="width:90%;" maxlength="28" >
           </div>
           </div>
           <div class = "clear">
@@ -278,7 +270,7 @@ clear:both;
             </b>
           </div>
           <div class ="right">
-          <input id="13" name="hp" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="13" name="hp" type="tel" placeholder="내용을 입력해주십시오" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
@@ -290,7 +282,7 @@ clear:both;
             </b>
           </div>
           <div class ="right">
-          <input id="14" name="method" type="text" placeholder="내용을 입력해주십시오" style="width:90%;">
+          <input id="14" name="method" type="text" placeholder="내용을 입력해주십시오" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
@@ -302,7 +294,7 @@ clear:both;
             </b>
           </div>
           <div class ="right">
-          <input  id="15" name="dead_line" placeholder="내용을 입력해주십시오" type="text" style="width:90%;">
+          <input  id="15" name="dead_line" placeholder="내용을 입력해주십시오" type="text" style="width:90%;" maxlength="28">
           </div>
           </div>
           <div class = "clear">
@@ -322,7 +314,7 @@ clear:both;
         </div>
             <br>
             <div style="float:left;">  
-            <button class="btn btn-small" type="button" onclick="location.href='/user/logout'"><span class="fui-search"> 목록</span></button>
+            <button class="btn btn-small" type="button" onclick="location.href='/job/index'"><span class="fui-search"> 목록</span></button>
             </div>
             <div style="float:right;">
             <input class="btn btn-small" type="submit" value="작성완료">

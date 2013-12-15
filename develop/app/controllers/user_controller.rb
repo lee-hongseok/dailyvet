@@ -71,6 +71,7 @@ skip_before_filter :get_user
       u.city = params[:city]
       u.county = params[:county]
       u.field = params[:field]
+      u.address_detail = params[:address_detail]
       u.vet_number = params[:vet_number]
       u.student_number = params[:student_number]
       u.work_name = params[:work_name]
@@ -91,25 +92,27 @@ skip_before_filter :get_user
   end
   end
 #
-  def sign_modify
-      u = User.find(session[:id])
-      @session_html = session[:id]
-      @email = u.email
-      @name = u.name
-  end
 #
-  def sign_modify_process
-    if params[:password_html] == params[:password_confirm_html]  
-    puts params[:id_html]
-      u = User.find(params[:id_html])
-      u.password = Digest::SHA512.hexdigest(params[:password_html])
-      u.name = params[:name_html]
+  def modify_process
+      u = User.where(:token => session[:token]).last
+      u.email = params[:email]
+      u.password = Digest::SHA512.hexdigest(params[:password])
+      u.name = params[:name]
+      u.nickname = params[:nickname]
+      u.phone_number = params[:phone_number]
+      u.city = params[:city]
+      u.county = params[:county]
+      u.field = params[:field]
+      u.address_detail = params[:address_detail]
+      u.vet_number = params[:vet_number]
+      u.student_number = params[:student_number]
+      u.work_name = params[:work_name]
+      u.work_number = params[:work_number]
+      u.university = params[:university]
+      u.mail_receive = params[:mail_receive]
+      u.sms_receive = params[:sms_receive]
       u.save
-      session[:user] = User.find(session[:id]).name
-      render :action => 'login'
-    else
-      render :text => "비밀번호가 일치하지 않습니다."
-    end
+      redirect_to :controller => 'job', :action => 'index'
   end
 
   def sign_out
