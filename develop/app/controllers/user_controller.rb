@@ -2,8 +2,8 @@
 class UserController < ApplicationController
 skip_before_filter :get_user
   def login
-    unless session[:id].nil?
-      redirect_to :controller => 'community' , :action => 'all'
+    unless session[:token].nil?
+      redirect_to :controller => 'job' , :action => 'all'
     else
       render :layout => 'other_layout'
     end
@@ -15,19 +15,6 @@ skip_before_filter :get_user
        render :text =>"아이디 및 비밀번호가 틀렸습니다."
     elsif  u.password == Digest::SHA512.hexdigest(params[:password])
       unless u.exit_flag == true
-        if u.level == 0 
-          session[:name] = u.name  
-          session[:user] = "DAILYVETadminDAILYVET"
-          session[:token] = u.token
-          session[:id] = u.id  
-          if session[:bbs] = 0
-            redirect_to :controller => 'community' , :action => 'all'
-          elsif session[:bbs] = 1
-            redirect_to :controller => 'job' , :action =>'all'
-          end
-        else
-          session[:name] = u.name  
-          session[:id] = u.id  
           session[:token] = u.token
           session[:view_check] = []
           if session[:bbs] = 1
@@ -35,7 +22,6 @@ skip_before_filter :get_user
           elsif session[:bbs] = 0
             redirect_to :controller => 'community' , :action => 'all'
           end
-        end
       else
         render :text => "탈퇴한 회원입니다."
       end
@@ -121,8 +107,9 @@ skip_before_filter :get_user
   def sign_out_process
     session[:user] = nil
     session[:id] = nil
-    u = User.where(:id => session[:id]).first
-    u.exit_flag = false
+    session[:token] = nil
+    u = User.where(:token => session[:token]).first
+    u.exit_flag = true
     u.save
     redirect_to :action => 'login'
   end

@@ -40,7 +40,7 @@ skip_before_filter :get_user , :only => [:index]
   def write_process
     jp = JobPost.new
 
-    jp.user_id = session[:id]
+    jp.user_id = User.where(:token => session[:token]).last.id
     jp.category = params[:category]
     jp.each = params[:each]
     jp.hour = params[:hour]
@@ -98,12 +98,19 @@ skip_before_filter :get_user , :only => [:index]
 
   def update
     @jp = JobPost.find(params[:id]) #업데이트 할 글을 뽑아옵시다.
+    if @jp.user.token == session[:token] or User.where(:token => session[:token]).level > 99
+    else
+    render :text => "잘못된 접근입니다"
+    end
   end
 
 
   def update_process #write_process랑 크게 다르지 않습니다.
 
       jp = JobPost.find(params[:id])
+      unless jp.user.token == session[:token] or User.where(:token => session[:token]).level > 99
+        render :text => "잘못된 접근입니다"
+      end
       jp.user_id = User.where(:token => session[:token]).last.id
       jp.category = params[:category]
       jp.each = params[:each]
@@ -130,7 +137,7 @@ skip_before_filter :get_user , :only => [:index]
   end
 
   def delete
-    if JobPost.where( :id => params[:id]).last.user_id == User.where(:token => session[:token]).last.id
+    if JobPost.where( :id => params[:id]).last.user.token == session[:token] or User.where(:token => session[:token]).level > 99
       jp = JobPost.find(params[:id])
       jp.delete_flag = true
       jp.save
@@ -142,7 +149,7 @@ skip_before_filter :get_user , :only => [:index]
   def reply_process
       reply = Comment.new
       reply.job_post_id = params[:job_post_id_from_view]
-      reply.user_id = session[:id]
+      reply.user_id = User.where(:token => session[:token]).last.id
       reply.content = params[:reply_content_from_view]
       reply.save
       jp_id = params[:job_post_id_from_view]

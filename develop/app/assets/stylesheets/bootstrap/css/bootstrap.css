@@ -3904,6 +3904,7 @@ input[type="submit"].btn.btn-mini {
 .nav > li > a:hover {
   text-decoration: none;
   background-color: #eeeeee;
+  color: #336699;
 }
 
 .nav > li > a > img {
